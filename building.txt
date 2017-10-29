@@ -1,0 +1,12 @@
+Windows:
+
+electron-packager . elcalc --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/calculator-icon.png.ico --prune=true --out=release-builds --version-string.CompanyName=Antoni Kepinski --version-string.FileDescription=Calculator --version-string.ProductName="elcalc"
+
+Linux: 
+
+electron-packager . elcalc --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/calculator-icon.png --prune=true --out=release-builds
+
+Mac:
+
+electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/calculator-icon.png.icns --prune=true --out=release-builds
+
