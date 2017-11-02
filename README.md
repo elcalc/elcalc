@@ -9,8 +9,12 @@
 <h4 align="center">Simple, Cross-Platform Calculator Made with Electron!</h4>
 
 <br>
-
-![Demo](https://raw.githubusercontent.com/xxczaki/elcalc/master/screenshot.png)
+------
+<h1 align="center">
+  <br>
+  <a href="https://github.com/xxczaki/elcalc"><img src="https://raw.githubusercontent.com/xxczaki/elcalc/master/screenshot.png" alt="Screenshot" width="200"></a>
+  <br>
+</h1>
 
 #### License
 
