@@ -8,13 +8,6 @@
 
 <h4 align="center">Simple, Cross-Platform Calculator Made with Electron!</h4>
 
-  <a href="https://opensource.org/licenses/MIT">
-      <img src="https://camo.githubusercontent.com/3ccf4c50a1576b0dd30b286717451fa56b783512/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d4d49542d79656c6c6f772e737667">
-  </a>
-  <a href="https://www.paypal.me/akepinski">
-    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
-  </a>
-</p>
 <br>
 
 ![Demo](https://raw.githubusercontent.com/xxczaki/akepinski.me/master/demo.png)
