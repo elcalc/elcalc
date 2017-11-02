@@ -10,7 +10,6 @@
 
 <br>
 <h1 align="center">
-  <br>
   <a href="https://github.com/xxczaki/elcalc"><img src="https://raw.githubusercontent.com/xxczaki/elcalc/master/screenshot.png" alt="Screenshot" width="200"></a>
 </h1>
 
