@@ -11,6 +11,10 @@
   <a href="https://github.com/xxczaki/elcalc"><img src="https://raw.githubusercontent.com/xxczaki/elcalc/master/screenshot.png" alt="Screenshot" width="200"></a>
 </h1>
 
-#### License
+## Installation
 
-[MIT](https://opensource.org/licenses/MIT)
+```
+$ npm install
+$ npm start
+```
+
