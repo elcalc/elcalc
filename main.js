@@ -1,35 +1,35 @@
-var app = require('app')
-var path = require('path')
-var BrowserWindow = require('browser-window')
+const electron = require('electron')
+const {
+  app,
+  BrowserWindow
+} = electron
 
-require('crash-reporter').start()
-
-var mainWindow = null
+var mainWindow = null;
 
 app.on('window-all-closed', function() {
-  if (process.platform !== 'darwin') {
-    app.quit()
+  if (process.platform != 'darwin') {
+    app.quit();
   }
-})
+});
 
 app.on('ready', function() {
   mainWindow = new BrowserWindow({
     titleBarStyle: 'hidden',
-    width: 341,
-    height: 356,
-    maxWidth: 341,
-    maxHeight: 356,
-    minWidth: 341,
-    minHeight: 356,
+		title: 'elcalc',
+    width: 331,
+    height: 324,
+    maxWidth: 331,
+    maxHeight: 344,
+    minWidth: 331,
+    minHeight: 344,
     maximizable: false,
     minimizable: false,
     resizable: false,
-    icon: path.join(__dirname, 'assets/icons/png/calculator-icon.png')
-  })
+  });
 
-  mainWindow.loadUrl('file://' + __dirname + '/index.html')
+  mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   mainWindow.on('closed', function() {
-    mainWindow = null
-  })
-})
+    mainWindow = null;
+  });
+});

@@ -1,22 +1,22 @@
 {
-	"name": "elcalc",
-	"productName": "elcalc",
-	"version": "1.0.4",
-	"description": "Simple Calculator Made with Electron",
-	"main": "main.js",
-	"scripts": {
-		"start": "electron ."
-	},
-	"author": "Antoni Kepinski",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/xxczaki/elcalc"
-	},
-	"bugs": {
-		"url": "https://github.com/xxczaki/elcalc/issues"
-	},
-	"devDependencies": {
-		"electron-packager": "^9.1.0",
-	}
+  "name": "elcalc",
+  "version": "1.0.5",
+  "description": "Simple Calculator Made with Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Antoni Kepinski",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elcalc/elcalc"
+  },
+  "bugs": {
+    "url": "https://github.com/elcalc/elcalc/issues"
+  },
+  "devDependencies": {
+    "electron": "^1.7.10",
+    "electron-packager": "^9.1.0"
+  }
 }
