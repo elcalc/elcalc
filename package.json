@@ -1,6 +1,6 @@
 {
   "name": "elcalc",
-  "version": "1.0.5",
+  "version": "2.0.1",
   "description": "Simple Calculator Made with Electron",
   "main": "main.js",
   "scripts": {
