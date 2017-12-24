@@ -10,7 +10,7 @@
 
 <h4 align="center">Simple, Cross-Platform Calculator Made with Electron!</h4>
 <h1 align="center">
-  <a href="https://github.com/elcalc/elcalc"><img src="https://i.imgur.com/ffaaBoR.png" alt="Screenshot" width="200"></a>
+  <a href="https://github.com/elcalc/elcalc"><img src="https://i.imgur.com/ffaaBoR.png" alt="Screenshot" width="300"></a>
 </h1>
 
 ## Main Features
