@@ -12,6 +12,7 @@
 <h1 align="center">
   <a href="https://github.com/elcalc/elcalc"><img src="https://raw.githubusercontent.com/elcalc/elcalc/master/screenshot.png" alt="Screenshot" width="200"></a>
 </h1>
+
 ## Main Features
 
 - Simple, Beautiful Interface
