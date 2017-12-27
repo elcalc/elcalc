@@ -28,3 +28,11 @@ $ npm start
 ## Production
 
 You can download the latest, official release [HERE](https://github.com/elcalc/elcalc/releases/latest). You can also create a release manually! Please check [`building.txt`](https://github.com/elcalc/elcalc/blob/master/building.txt).
+
+## Authors
+
+- [Antoni Kepinski](https://akepinski.me)
+
+<script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Buy Me a Coffee', '#46b798', 'H2H26YZG');kofiwidget2.draw();</script> 
+
+
