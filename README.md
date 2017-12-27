@@ -32,7 +32,3 @@ You can download the latest, official release [HERE](https://github.com/elcalc/e
 ## Authors
 
 - [Antoni Kepinski](https://akepinski.me)
-
-<script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Buy Me a Coffee', '#46b798', 'H2H26YZG');kofiwidget2.draw();</script> 
-
-
