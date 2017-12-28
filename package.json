@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "start": "electron-forge start",
-    "test": "xo && nyc --reporter=html --reporter=text mocha",
+    "test": "xo --fix && nyc --reporter=html --reporter=text mocha",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
