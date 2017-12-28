@@ -16,10 +16,9 @@
   ],
   "scripts": {
     "start": "electron-forge start",
-    "test": "xo --fix && nyc --reporter=html --reporter=text mocha",
+    "test": "xo",
     "package": "electron-forge package",
-    "make": "electron-forge make",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "make": "electron-forge make"
   },
   "author": "Antoni Kepinski <hello@akepinski.me> (https://akepinski.me)",
   "license": "MIT",
@@ -34,7 +33,6 @@
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "coveralls": "^3.0.0",
     "electron-forge": "^4.1.7",
     "electron-prebuilt-compile": "1.8.2-beta.3",
     "xo": "^0.18.2"
