@@ -21,19 +21,10 @@
 
 ## Installation
 
-``` 
-# Install dependencies
-
+```
 $ npm install
-
-# Run the app
-
 $ npm start
 ```
 ## Production
 
 You can download the latest, official release [HERE](https://github.com/elcalc/elcalc/releases/latest). You can also create a release manually! Please check [`building.txt`](https://github.com/elcalc/elcalc/blob/master/building.txt).
-
-## Authors
-
-- [Antoni Kepinski](https://akepinski.me)

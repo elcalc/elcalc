@@ -1,22 +1,85 @@
 {
   "name": "elcalc",
-  "version": "2.0.1",
+  "productName": "elcalc",
+  "website": "https://github.com/elcalc/elcalc/releases/latest",
+  "version": "3.0.0",
+  "icon": "src/assets/icons/png/calculator-icon.png",
   "description": "Simple Calculator Made with Electron",
-  "main": "main.js",
+  "main": "src/main.js",
+  "electronVersion": "1.7.10",
+  "keywords": [
+    "electron",
+    "calculator",
+    "app",
+    "simple",
+    "calculate"
+  ],
   "scripts": {
-    "start": "electron ."
+    "start": "electron-forge start",
+    "test": "xo && nyc --reporter=html --reporter=text mocha",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
-  "author": "Antoni Kepinski",
+  "author": "Antoni Kepinski <hello@akepinski.me> (https://akepinski.me)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elcalc/elcalc"
+    "url": "git+https://github.com/elcalc/elcalc.git"
   },
   "bugs": {
     "url": "https://github.com/elcalc/elcalc/issues"
   },
   "devDependencies": {
-    "electron": "^1.7.10",
-    "electron-packager": "^9.1.0"
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "coveralls": "^3.0.0",
+    "electron-forge": "^4.1.7",
+    "electron-prebuilt-compile": "1.8.2-beta.3",
+    "xo": "^0.18.2"
+  },
+  "dependencies": {
+    "electron-compile": "^6.4.2",
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "xo": {
+    "esnext": "true",
+    "ignores": [
+      "src/assets/js/jquery.js"
+    ],
+    "rules": {
+      "no-path-concat": 0,
+      "no-eval": 0
+    }
+  },
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "yarn"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "xxczaki",
+        "name": "elcalc"
+      },
+      "windowsStoreConfig": {
+        "packageName": "elcalc",
+        "name": "elcalc"
+      }
+    }
   }
 }
