@@ -17,9 +17,9 @@
 
 - Simple, Beautiful Interface
 - Clean & Well Commented Code
-- Cross Platform
+- Cross Platform (Windows, Mac & Linux)
 
-## Installation
+## Guide
 
 ```
 # Install dependencies
@@ -30,14 +30,14 @@
 
  $ npm start
 
-# Build releases for all platforms
+# Build for all platforms
 
  $ npm run build
 
-# Build release for one platform ( win / osx / linux ), example for Windows:
+# Build for one platform ( win / osx / linux ), example for Windows:
 
  $ npm run win
 ```
 ## Download
 
-You can download the latest, official release [HERE](https://github.com/elcalc/elcalc/releases/latest).
+You can download the latest, official releases [HERE](https://github.com/elcalc/elcalc/releases/latest).
