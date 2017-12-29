@@ -2,7 +2,7 @@
   "name": "elcalc",
   "productName": "elcalc",
   "website": "https://github.com/elcalc/elcalc/releases/latest",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "icon": "src/assets/icons/png/calculator-icon.png",
   "description": "Simple Calculator Made with Electron",
   "main": "src/main.js",
@@ -15,11 +15,12 @@
     "calculate"
   ],
   "scripts": {
-    "start": "electron-forge start",
-    "test": "xo --fix && nyc --reporter=html --reporter=text mocha",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "start": "electron .",
+    "test": "xo",
+    "build": "npm run win && npm run osx && npm run linux",
+    "win": "electron-packager . %npm_package_productName% --out=dist --arch=all --platform=win32 --ignore='^/dist$' --prune --asar --overwrite --icon=./src/assets/icons/win/calculator-icon.png.ico --version=$npm_package_electronVersion --app-version=%npm_package_version%",
+    "osx": "electron-packager . %npm_package_productName% --out=dist --ignore='^/dist$' --overwrite --prune --asar --arch=all --platform=darwin --icon=./src/assets/icons/mac/calculator-icon.png.icns --version=$npm_package_electronVersion --app-version=%npm_package_version%",
+    "linux": "electron-packager . %npm_package_productName% --out=dist --arch=all --platform=linux --ignore='^/dist$' --prune --asar --overwrite --icon=./src/assets/icons/png/calculator-icon.png --version=$npm_package_electronVersion --app-version=%npm_package_version%"
   },
   "author": "Antoni Kepinski <hello@akepinski.me> (https://akepinski.me)",
   "license": "MIT",
@@ -31,18 +32,11 @@
     "url": "https://github.com/elcalc/elcalc/issues"
   },
   "devDependencies": {
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "coveralls": "^3.0.0",
-    "electron-forge": "^4.1.7",
-    "electron-prebuilt-compile": "1.8.2-beta.3",
-    "xo": "^0.18.2"
+    "xo": "^0.18.2",
+    "electron-packager": "10.1.0",
+    "electron": "1.7.10"
   },
-  "dependencies": {
-    "electron-compile": "^6.4.2",
-    "electron-squirrel-startup": "^1.0.0"
-  },
+  "dependencies": {},
   "xo": {
     "esnext": "true",
     "ignores": [
@@ -51,35 +45,6 @@
     "rules": {
       "no-path-concat": 0,
       "no-eval": 0
-    }
-  },
-  "config": {
-    "forge": {
-      "make_targets": {
-        "win32": [
-          "squirrel"
-        ],
-        "darwin": [
-          "zip"
-        ],
-        "linux": [
-          "deb",
-          "rpm"
-        ]
-      },
-      "electronPackagerConfig": {
-        "packageManager": "yarn"
-      },
-      "electronInstallerDebian": {},
-      "electronInstallerRedhat": {},
-      "github_repository": {
-        "owner": "xxczaki",
-        "name": "elcalc"
-      },
-      "windowsStoreConfig": {
-        "packageName": "elcalc",
-        "name": "elcalc"
-      }
     }
   }
 }
