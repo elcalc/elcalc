@@ -2,7 +2,7 @@
   "name": "elcalc",
   "productName": "elcalc",
   "website": "https://github.com/elcalc/elcalc/releases/latest",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "icon": "src/assets/icons/png/calculator-icon.png",
   "description": "Simple Calculator Made with Electron",
   "main": "src/main.js",
@@ -16,7 +16,6 @@
   ],
   "scripts": {
     "start": "electron .",
-    "test": "xo",
     "build": "npm run win && npm run osx && npm run linux",
     "win": "electron-packager . %npm_package_productName% --out=dist --arch=all --platform=win32 --ignore='^/dist$' --prune --asar --overwrite --icon=./src/assets/icons/win/calculator-icon.png.ico --version=$npm_package_electronVersion --app-version=%npm_package_version%",
     "osx": "electron-packager . %npm_package_productName% --out=dist --ignore='^/dist$' --overwrite --prune --asar --arch=all --platform=darwin --icon=./src/assets/icons/mac/calculator-icon.png.icns --version=$npm_package_electronVersion --app-version=%npm_package_version%",
@@ -32,19 +31,8 @@
     "url": "https://github.com/elcalc/elcalc/issues"
   },
   "devDependencies": {
-    "xo": "^0.18.2",
     "electron-packager": "10.1.0",
     "electron": "1.7.10"
   },
   "dependencies": {},
-  "xo": {
-    "esnext": "true",
-    "ignores": [
-      "src/assets/js/jquery.js"
-    ],
-    "rules": {
-      "no-path-concat": 0,
-      "no-eval": 0
-    }
-  }
 }
