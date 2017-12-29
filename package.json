@@ -34,5 +34,5 @@
     "electron-packager": "10.1.0",
     "electron": "1.7.10"
   },
-  "dependencies": {},
+  "dependencies": {}
 }
