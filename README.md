@@ -24,19 +24,19 @@
 ```
 # Install dependencies
 
-$ npm install
+ $ npm install
 
 # Run the app
 
-$ npm start
+ $ npm start
 
 # Build releases for all platforms
 
-$ npm run build
+ $ npm run build
 
 # Build release for one platform ( win / osx / linux ), example for Windows:
 
-$ npm run win
+ $ npm run win
 ```
 ## Download
 
