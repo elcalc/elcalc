@@ -21,7 +21,7 @@
 
 ## Guide
 
-```
+``` bash
 # Install dependencies
 
  $ npm install
@@ -38,6 +38,8 @@
 
  $ npm run win
 ```
+
+
 ## Download
 
 You can download the latest, official releases [HERE](https://github.com/elcalc/elcalc/releases/latest).
