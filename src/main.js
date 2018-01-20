@@ -17,8 +17,8 @@ app.on('ready', () => {
 	mainWindow = new BrowserWindow({
 		titleBarStyle: 'hidden',
 		title: 'elcalc',
-		width: 331,
-		height: 324,
+		width: 325,
+		height: 295,
 		maxWidth: 331,
 		maxHeight: 344,
 		minWidth: 331,

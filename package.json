@@ -2,8 +2,8 @@
   "name": "elcalc",
   "productName": "elcalc",
   "website": "https://github.com/elcalc/elcalc/releases/latest",
-  "version": "3.0.2",
-  "icon": "src/assets/icons/png/calculator-icon.png",
+  "version": "4.0.0",
+  "files": ["**/*", "build/icon.*", "src/*", "src/assets/css/*", "src/assets/js/*"],
   "description": "Simple Calculator Made with Electron",
   "main": "src/main.js",
   "electronVersion": "1.7.10",
@@ -16,10 +16,9 @@
   ],
   "scripts": {
     "start": "electron .",
-    "build": "npm run win && npm run osx && npm run linux",
-    "win": "electron-packager . %npm_package_productName% --out=dist --arch=all --platform=win32 --ignore='^/dist$' --prune --asar --overwrite --icon=./src/assets/icons/win/calculator-icon.png.ico --version=$npm_package_electronVersion --app-version=%npm_package_version%",
-    "osx": "electron-packager . %npm_package_productName% --out=dist --ignore='^/dist$' --overwrite --prune --asar --arch=all --platform=darwin --icon=./src/assets/icons/mac/calculator-icon.png.icns --version=$npm_package_electronVersion --app-version=%npm_package_version%",
-    "linux": "electron-packager . %npm_package_productName% --out=dist --arch=all --platform=linux --ignore='^/dist$' --prune --asar --overwrite --icon=./src/assets/icons/png/calculator-icon.png --version=$npm_package_electronVersion --app-version=%npm_package_version%"
+    "pack": "electron-builder --dir",
+    "postinstall": "electron-builder install-app-deps",
+    "dist": "electron-builder -mwl"
   },
   "author": "Antoni Kepinski <hello@akepinski.me> (https://akepinski.me)",
   "license": "MIT",
@@ -31,8 +30,30 @@
     "url": "https://github.com/elcalc/elcalc/issues"
   },
   "devDependencies": {
-    "electron-packager": "10.1.0",
-    "electron": "1.7.10"
+    "electron": "1.7.10",
+    "electron-builder": "19.54.0",
+    "electron-builder-squirrel-windows": "19.55.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "build": {
+    "appId": "me.akepinski.elcalc",
+    "linux": {
+      "category": "Calculator",
+      "target": [{
+          "target": "deb",
+          "arch": ["x64"]
+        },
+        {
+          "target": "rpm",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "win": {
+      "target": ["squirrel"]
+    },
+    "mac": {},
+    "deb": {},
+    "rpm": {}
+  }
 }
