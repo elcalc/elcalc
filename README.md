@@ -17,7 +17,7 @@
 
 - Simple, Beautiful Interface
 - Clean & Well Commented Code
-- Cross Platform (Windows, Mac & Linux)a
+- Cross Platform (Windows, Mac & Linux)
 
 ## Guide
 
