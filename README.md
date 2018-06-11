@@ -4,8 +4,6 @@
   <br>
   elcalc
   <br>
-  <p align="center"><a href="https://travis-ci.org/elcalc/elcalc"><img src="https://travis-ci.org/elcalc/elcalc.svg?branch=master" alt="Travis CI Status"></a>
-  </p>
 </h1>
 
 <h4 align="center">Simple, Cross-Platform Calculator Made with Electron!</h4>
