@@ -15,28 +15,21 @@
 
 ## Main Features
 
-- Simple, Beautiful Interface
+- Simple Interface
 - Clean & Well Commented Code
-- Cross Platform (Windows, Mac & Linux)
+- ~~Cross Platform (Windows, Mac & Linux)~~
 
 ## Guide
+> I recommend using yarn instead of npm.
 
 ``` bash
 # Install dependencies
 
- $ npm install
+ $ yarn install
 
 # Run the app
 
- $ npm start
-
-# Build for all platforms
-
- $ npm run build
-
-# Build for one platform ( win / osx / linux ), example for Windows:
-
- $ npm run win
+ $ yarn start
 ```
 <a href="https://www.patreon.com/akepinski">
 	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
