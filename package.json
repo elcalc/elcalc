@@ -2,11 +2,11 @@
   "name": "elcalc",
   "productName": "elcalc",
   "website": "https://github.com/elcalc/elcalc/releases/latest",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "files": ["**/*", "build/icon.*", "src/*", "src/assets/css/*", "src/assets/js/*"],
   "description": "Simple Calculator Made with Electron",
   "main": "src/main.js",
-  "electronVersion": "1.7.10",
+  "electronVersion": "2.0.2",
   "keywords": [
     "electron",
     "calculator",
@@ -18,7 +18,7 @@
     "start": "electron .",
     "pack": "electron-builder --dir",
     "postinstall": "electron-builder install-app-deps",
-    "dist": "electron-builder -mwl"
+    "dist": "electron-builder -l"
   },
   "author": "Antoni Kepinski <hello@akepinski.me> (https://akepinski.me)",
   "license": "MIT",
@@ -30,30 +30,14 @@
     "url": "https://github.com/elcalc/elcalc/issues"
   },
   "devDependencies": {
-    "electron": "1.7.10",
-    "electron-builder": "19.54.0",
-    "electron-builder-squirrel-windows": "19.55.1"
+    "electron": "2.0.2",
+    "electron-builder": "20.15.1"
   },
   "dependencies": {},
-  "build": {
-    "appId": "me.akepinski.elcalc",
-    "linux": {
-      "category": "Calculator",
-      "target": [{
-          "target": "deb",
-          "arch": ["x64"]
-        },
-        {
-          "target": "rpm",
-          "arch": ["x64"]
-        }
-      ]
-    },
-    "win": {
-      "target": ["squirrel"]
-    },
-    "mac": {},
-    "deb": {},
-    "rpm": {}
-  }
+   "build": {
+   "appId": "me.akepinski.elcalc",
+   "linux": {
+    "target": "deb"
+   }
+ }
 }
