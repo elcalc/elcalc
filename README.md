@@ -8,17 +8,11 @@ Elcalc is a simple, cross-platform calculator, built with [Electron](https://ele
   
 <img src="https://imgur.com/GDDQFfJ.png" alt="Screenshot" align="left" width="250"></a>
 
-## Main Features
-
-- Simple Interface
-- Clean & Well Commented Code
-- Cross Platform (Windows, ~~Mac~~ & Linux)
-
----
-
 ## Install
 
 Check out [**the latest release**](https://github.com/elcalc/elcalc/releases/latest).
+
+---
 
 ## Dev
 
