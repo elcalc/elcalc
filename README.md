@@ -1,23 +1,27 @@
-<h1 align="center">
-  <br>
-  <a href="https://github.com/elcalc/elcalc"><img src="https://raw.githubusercontent.com/elcalc/elcalc/master/logo.png" alt="elcalc logo" width="200"></a>
-  <br>
-  elcalc
-  <br>
-</h1>
+<img src="https://raw.githubusercontent.com/elcalc/elcalc/master/logo.png" alt="elcalc logo" align="right" width="200">
 
-<h4 align="center">Simple, Cross-Platform Calculator Made with Electron!</h4>
-<h1 align="center">
-  <a href="https://github.com/elcalc/elcalc"><img src="https://i.imgur.com/ffaaBoR.png" alt="Screenshot" width="300"></a>
-</h1>
+# elcalc
+
+Elcalc is a simple, cross-platform calculator, built with [Electron](https://electronjs.org/). It is fast, intuitive and can be used as an alternative for the default system calculator. It supports basic arithmetic operations.
+
+---
+  
+<img src="https://imgur.com/GDDQFfJ.png" alt="Screenshot" align="left" width="250"></a>
 
 ## Main Features
 
 - Simple Interface
 - Clean & Well Commented Code
-- ~~Cross Platform (Windows, Mac & Linux)~~
+- Cross Platform (Windows, ~~Mac~~ & Linux)
 
-## Guide
+---
+
+## Install
+
+Check out [**the latest release**](https://github.com/elcalc/elcalc/releases/latest).
+
+## Dev
+
 > I recommend using yarn instead of npm.
 
 ``` bash
@@ -28,12 +32,15 @@
 # Run the app
 
  $ yarn start
+ 
+# Build 
+
+ $ yarn dist
 ```
 <a href="https://www.patreon.com/akepinski">
 	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
 </a>
 
+## License
 
-## Download
-
-You can download the latest, official releases [HERE](https://github.com/elcalc/elcalc/releases/latest).
+MIT
