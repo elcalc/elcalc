@@ -5,8 +5,6 @@
 Elcalc is a simple, cross-platform calculator, built with [Electron](https://electronjs.org/). It is fast, intuitive and can be used as an alternative for the default system calculator. It supports basic arithmetic operations.
 
 ---
-  
-<img src="https://imgur.com/GDDQFfJ.png" alt="Screenshot" align="left" width="250"></a>
 
 ## Install
 
