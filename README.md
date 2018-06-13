@@ -10,6 +10,8 @@ Elcalc is a simple, cross-platform calculator, built with [Electron](https://ele
 
 Check out [**the latest release**](https://github.com/elcalc/elcalc/releases/latest).
 
+[![Download elcalc](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/elcalc-electron/files/latest/download)
+
 ---
 
 ## Dev
