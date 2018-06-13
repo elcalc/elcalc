@@ -2,9 +2,15 @@
   "name": "elcalc",
   "productName": "elcalc",
   "website": "https://github.com/elcalc/elcalc/releases/latest",
-  "version": "4.0.1",
-  "files": ["**/*", "build/icon.*", "src/*", "src/assets/css/*", "src/assets/js/*"],
-  "description": "Simple Calculator Made with Electron",
+  "version": "4.0.2",
+  "files": [
+    "**/*",
+    "build/icon.*",
+    "src/*",
+    "src/assets/css/*",
+    "src/assets/js/*"
+  ],
+  "description": "Simple, Cross-Platform calculator built with Electron.",
   "main": "src/main.js",
   "electronVersion": "2.0.2",
   "keywords": [
@@ -18,7 +24,7 @@
     "start": "electron .",
     "pack": "electron-builder --dir",
     "postinstall": "electron-builder install-app-deps",
-    "dist": "electron-builder -l"
+    "dist": "electron-builder --linux deb rpm AppImage --x64 --ia32 --windows portable --x64 --ia32 --mac dmg"
   },
   "author": "Antoni Kepinski <hello@akepinski.me> (https://akepinski.me)",
   "license": "MIT",
@@ -33,11 +39,11 @@
     "electron": "2.0.2",
     "electron-builder": "20.15.1"
   },
-  "dependencies": {},
-   "build": {
-   "appId": "me.akepinski.elcalc",
-   "linux": {
-    "target": "deb"
-   }
- }
+  "dependencies": {
+    "ajv": "^6.5.1"
+  },
+  "build": {
+    "appId": "me.akepinski.elcalc",
+    "copyright": "Copyright © 2018 Antoni Kepinski"
+  }
 }
