@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/elcalc/elcalc/master/logo.png" alt="elcalc logo" align="right" width="200">
 
-# elcalc
+# elcalc [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 
 Elcalc is a simple, cross-platform calculator, built with [Electron](https://electronjs.org/). It is fast, intuitive and can be used as an alternative for the default system calculator. It supports basic arithmetic operations.
 
