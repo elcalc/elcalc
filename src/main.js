@@ -1,24 +1,15 @@
 const electron = require('electron');
 
-const {
-  app,
-  BrowserWindow
-} = electron;
+const {app, BrowserWindow} = electron;
 
 let mainWindow = null;
-
-app.on('window-all-closed', () => {
-	if (process.platform !== 'darwin') {
-		app.quit();
-	}
-});
 
 app.on('ready', () => {
 	mainWindow = new BrowserWindow({
 		titleBarStyle: 'hidden',
 		title: 'elcalc',
-		width: 325,
-		height: 295,
+		width: 331,
+		height: 324,
 		maxWidth: 331,
 		maxHeight: 344,
 		minWidth: 331,
@@ -28,10 +19,9 @@ app.on('ready', () => {
 		resizable: false
 	});
 
-	mainWindow.loadURL('file://' + __dirname + '/index.html');
+	mainWindow.loadURL(`file://${__dirname}/index.html`);
 
 	mainWindow.on('closed', () => {
 		mainWindow = null;
 	});
 });
-

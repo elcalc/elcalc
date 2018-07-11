@@ -1,12 +1,14 @@
 /* global document */
 // Get all the keys from document
 const keys = document.querySelectorAll('#calculator span');
+const math = require('mathjs');
+
 const operators = ['+', '-', '*', '/'];
 let decimalAdded = false;
 
 // Add onclick event to all the keys and perform operations
 for (let i = 0; i < keys.length; i++) {
-	keys[i].onclick = function (e) {
+	keys[i].addEventListener('click', function (e) {
 		// Get the input and button values
 		const input = document.querySelector('.screen');
 		const inputVal = input.innerHTML;
@@ -32,7 +34,7 @@ for (let i = 0; i < keys.length; i++) {
 			}
 
 			if (equation)				{
-				input.innerHTML = eval(equation);
+				input.innerHTML = math.eval(equation);
 			}
 
 			decimalAdded = false;
@@ -81,5 +83,5 @@ for (let i = 0; i < keys.length; i++) {
 
 		// Prevent page jumps
 		e.preventDefault();
-	};
+	});
 }
