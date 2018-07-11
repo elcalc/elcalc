@@ -2,26 +2,24 @@ const electron = require('electron');
 
 const {app, BrowserWindow} = electron;
 
-let mainWindow = null;
+let win = null;
 
 app.on('ready', () => {
-	mainWindow = new BrowserWindow({
+	win = new BrowserWindow({
 		titleBarStyle: 'hidden',
 		title: 'elcalc',
-		width: 331,
-		height: 324,
-		maxWidth: 331,
-		maxHeight: 344,
-		minWidth: 331,
-		minHeight: 344,
+		width: 324,
+		height: 295,
 		maximizable: false,
 		minimizable: false,
 		resizable: false
 	});
 
-	mainWindow.loadURL(`file://${__dirname}/index.html`);
+	win.setMenu(null);
 
-	mainWindow.on('closed', () => {
-		mainWindow = null;
+	win.loadURL(`file://${__dirname}/index.html`);
+
+	win.on('closed', () => {
+		win = null;
 	});
 });
