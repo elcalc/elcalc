@@ -22,8 +22,7 @@
   ],
   "scripts": {
     "start": "electron .",
-    "pack": "electron-builder --dir",
-    "postinstall": "electron-builder install-app-deps",
+    "test": "xo",
     "dist": "electron-builder --linux deb rpm AppImage --x64 --ia32 --windows portable --x64 --ia32 --mac dmg"
   },
   "author": "Antoni Kepinski <a@kepinski.me> (https://kepinski.me)",
