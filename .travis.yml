@@ -1,7 +1,3 @@
 language: node_js
 node_js:
- - "9"
- - "8"
- - "7"
-before_install:
-  - npm install --global npm
+ - "node"
