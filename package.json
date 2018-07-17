@@ -2,7 +2,7 @@
   "name": "elcalc",
   "productName": "elcalc",
   "website": "https://github.com/elcalc/elcalc/releases/latest",
-  "version": "4.0.4",
+  "version": "4.0.5",
   "files": [
     "**/*",
     "build/icon.*",
@@ -23,7 +23,7 @@
   "scripts": {
     "start": "electron .",
     "test": "xo",
-    "dist": "electron-builder --linux deb rpm AppImage --x64 --ia32 --windows portable --x64 --ia32"
+    "dist": "electron-builder -l deb rpm AppImage --x64 --ia32 -w NSIS --x64 --ia32"
   },
   "author": "Antoni Kepinski <a@kepinski.me> (https://kepinski.me)",
   "license": "MIT",
@@ -35,11 +35,11 @@
     "url": "https://github.com/elcalc/elcalc/issues"
   },
     "dependencies": {
-    "mathjs": "^5.0.2"
+    "mathjs": "^5.0.3"
   },
   "devDependencies": {
     "electron": "2.0.4",
-    "electron-builder": "20.19.2",
+    "electron-builder": "20.21.2",
 		"xo": "*"
   },
   "build": {

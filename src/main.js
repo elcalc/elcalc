@@ -2,12 +2,12 @@ const {app, BrowserWindow} = require('electron');
 
 app.on('ready', () => {
 	let win = new BrowserWindow({
-		titleBarStyle: 'hidden',
-		width: 324,
-		height: 295,
+		width: 325,
+		height: 318,
 		maximizable: false,
 		minimizable: false,
 		resizable: false,
+		backgroundColor: '#9BA6A7',
 		darkTheme: true,
 		show: false
 	});
