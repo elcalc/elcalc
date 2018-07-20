@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "start": "electron .",
-    "test": "xo",
+    "test": "xo && ava",
     "dist": "electron-builder -l deb rpm AppImage --x64 --ia32 -w NSIS --x64 --ia32"
   },
   "author": "Antoni Kepinski <a@kepinski.me> (https://kepinski.me)",
@@ -34,13 +34,15 @@
   "bugs": {
     "url": "https://github.com/elcalc/elcalc/issues"
   },
-    "dependencies": {
+  "dependencies": {
     "mathjs": "^5.0.3"
   },
   "devDependencies": {
+    "ava": "*",
+    "xo": "*",
+    "spectron": "*",
     "electron": "2.0.4",
-    "electron-builder": "20.21.2",
-		"xo": "*"
+    "electron-builder": "*"
   },
   "build": {
     "appId": "me.akepinski.elcalc",
