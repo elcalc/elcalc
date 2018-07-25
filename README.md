@@ -41,13 +41,6 @@ Check out [**the latest release**](https://github.com/elcalc/elcalc/releases/lat
 	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
 </a>
 
-## Where is the macOS release?
-
-Currently, I have no way to package this app for OSX. If you want to package it yourself, run:
-```bash
-electron-builder --mac dmg
-```
-
 ### License
 
 MIT
