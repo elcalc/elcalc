@@ -2,7 +2,7 @@
   "name": "elcalc",
   "productName": "elcalc",
   "website": "https://github.com/elcalc/elcalc/releases/latest",
-  "version": "4.0.5",
+  "version": "4.0.6",
   "files": [
     "**/*",
     "build/icon.*",
@@ -12,7 +12,7 @@
   ],
   "description": "Simple, Cross-Platform calculator built with Electron.",
   "main": "src/main.js",
-  "electronVersion": "2.0.4",
+  "electronVersion": "2.0.5",
   "keywords": [
     "electron",
     "calculator",
@@ -23,7 +23,7 @@
   "scripts": {
     "start": "electron .",
     "test": "xo && ava",
-    "dist": "electron-builder -l deb rpm AppImage --x64 --ia32 -w NSIS --x64 --ia32"
+    "dist": "electron-builder -l deb rpm AppImage --x64 --ia32 -w NSIS --x64 --ia32 -m dmg"
   },
   "author": "Antoni Kepinski <a@kepinski.me> (https://kepinski.me)",
   "license": "MIT",
@@ -35,14 +35,14 @@
     "url": "https://github.com/elcalc/elcalc/issues"
   },
   "dependencies": {
-    "mathjs": "^5.0.3"
+    "mathjs": "^5.0.4"
   },
   "devDependencies": {
     "ava": "*",
     "xo": "*",
     "spectron": "*",
-    "electron": "2.0.4",
-    "electron-builder": "*"
+    "electron": "2.0.5",
+    "electron-builder": "20.26.1"
   },
   "build": {
     "appId": "me.akepinski.elcalc",
