@@ -1,4 +1,10 @@
 const {app, BrowserWindow} = require('electron');
+const logger = require('electron-timber');
+
+// Handle uncaught exceptions before calling any functions
+process.on('uncaughtException', err => {
+	logger.error('Uncaught error:\n', err);
+});
 
 app.on('ready', () => {
 	let win = new BrowserWindow({
@@ -17,10 +23,12 @@ app.on('ready', () => {
 	win.loadURL(`file://${__dirname}/index.html`);
 
 	win.once('ready-to-show', () => {
+		logger.log('App started');
 		win.show();
 	});
 
 	win.on('closed', () => {
+		logger.log(`App closed`);
 		win = null;
 	});
 });

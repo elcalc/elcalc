@@ -2,7 +2,7 @@
   "name": "elcalc",
   "productName": "elcalc",
   "website": "https://github.com/elcalc/elcalc/releases/latest",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "files": [
     "**/*",
     "build/icon.*",
@@ -12,7 +12,7 @@
   ],
   "description": "Simple, Cross-Platform calculator built with Electron.",
   "main": "src/main.js",
-  "electronVersion": "2.0.5",
+  "electronVersion": "2.0.6",
   "keywords": [
     "electron",
     "calculator",
@@ -35,13 +35,14 @@
     "url": "https://github.com/elcalc/elcalc/issues"
   },
   "dependencies": {
+    "electron-timber": "^0.5.1",
     "mathjs": "^5.0.4"
   },
   "devDependencies": {
     "ava": "*",
     "xo": "*",
     "spectron": "*",
-    "electron": "2.0.5",
+    "electron": "2.0.6",
     "electron-builder": "20.26.1"
   },
   "build": {
