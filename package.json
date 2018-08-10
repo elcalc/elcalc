@@ -1,38 +1,19 @@
 {
   "name": "elcalc",
-  "productName": "elcalc",
-  "website": "https://github.com/elcalc/elcalc/releases/latest",
-  "version": "4.0.7",
-  "files": [
-    "**/*",
-    "build/icon.*",
-    "src/*",
-    "src/assets/css/*",
-    "src/assets/js/*"
-  ],
-  "description": "Simple, Cross-Platform calculator built with Electron.",
+  "version": "4.0.8",
+  "description": "Simple, Cross-Platform calculator built with Electron",
+  "license": "MIT",
   "main": "src/main.js",
-  "electronVersion": "2.0.6",
-  "keywords": [
-    "electron",
-    "calculator",
-    "app",
-    "simple",
-    "calculate"
-  ],
+  "repository": "elcalc/elcalc",
+  "author": {
+    "name": "Antoni Kepinski",
+    "email": "a@kepinski.me",
+    "url": "kepinski.me"
+  },
   "scripts": {
     "start": "electron .",
-    "test": "xo && ava",
-    "dist": "electron-builder -l deb rpm AppImage --x64 --ia32 -w NSIS --x64 --ia32 -m dmg"
-  },
-  "author": "Antoni Kepinski <a@kepinski.me> (https://kepinski.me)",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/elcalc/elcalc.git"
-  },
-  "bugs": {
-    "url": "https://github.com/elcalc/elcalc/issues"
+    "test": "xo && stylelint 'src/assets/css/*.css' && ava",
+    "dist": "electron-builder --mac --linux --win"
   },
   "dependencies": {
     "electron-timber": "^0.5.1",
@@ -40,13 +21,44 @@
   },
   "devDependencies": {
     "ava": "*",
-    "xo": "*",
+    "electron": "2.0.7",
+    "electron-builder": "20.27.1",
     "spectron": "*",
-    "electron": "2.0.6",
-    "electron-builder": "20.26.1"
+    "stylelint": "*",
+    "stylelint-config-xo": "*",
+    "xo": "*"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-xo",
+    "rules": {
+      "property-no-vendor-prefix": null,
+      "property-blacklist": null,
+      "no-duplicate-selectors": null,
+      "declaration-property-value-blacklist": null,
+      "font-weight-notation": null
+    }
   },
   "build": {
-    "appId": "me.akepinski.elcalc",
-    "copyright": "Copyright © 2018 Antoni Kepinski"
+    "files": [
+      "**/*",
+      "build/icon.*"
+    ],
+    "appId": "me.kepinski.elcalc",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "dmg": {
+      "iconSize": 150
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm"
+      ],
+      "synopsis": "Simple, Cross-Platform Calculator",
+      "description": "Simple, Cross-Platform calculator built with Electron.",
+      "category": "Utility;Calculator"
+    }
   }
 }

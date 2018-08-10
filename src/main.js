@@ -9,12 +9,13 @@ process.on('uncaughtException', err => {
 app.on('ready', () => {
 	let win = new BrowserWindow({
 		width: 325,
-		height: 318,
+		height: 340,
 		maximizable: false,
-		minimizable: false,
 		resizable: false,
 		backgroundColor: '#9BA6A7',
 		darkTheme: true,
+		alwaysOnTop: true,
+		titleBarStyle: 'hidden',
 		show: false
 	});
 
@@ -30,5 +31,6 @@ app.on('ready', () => {
 	win.on('closed', () => {
 		logger.log(`App closed`);
 		win = null;
+		app.quit();
 	});
 });
