@@ -18,7 +18,7 @@ Check out [**the latest release**](https://github.com/elcalc/elcalc/releases/lat
 
 > I recommend using yarn instead of npm.
 
-<img src="https://imgur.com/giOoc78.png" alt="Screenshot" align="right" width="250"></a>
+<img src="https://imgur.com/giOoc78.png" alt="Screenshot" align="right" width="350"></a>
 
 ``` bash
 # Install dependencies
