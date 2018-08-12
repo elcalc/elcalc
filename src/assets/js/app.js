@@ -3,17 +3,17 @@ const keys = document.querySelectorAll('#calculator span');
 const math = require('mathjs');
 const logger = require('electron-timber');
 
-const operators = ['+', '-', '*', '/'];
+const operators = ['+', '-', '*', '÷'];
 let decimalAdded = false;
 
 for (let i = 0; i < keys.length; i++) {
 	keys[i].addEventListener('click', function (e) {
 		const input = document.querySelector('.screen');
-		const inputVal = input.innerHTML;
-		const btnVal = this.innerHTML;
+		const inputVal = input.textContent;
+		const btnVal = this.textContent;
 
 		if (btnVal === 'C') {
-			input.innerHTML = '';
+			input.textContent = '';
 			decimalAdded = false;
 			logger.log('Cleared calculator output');
 		} else if (btnVal === '=') {
@@ -28,7 +28,7 @@ for (let i = 0; i < keys.length; i++) {
 
 			if (equation) {
 				logger.log(`Evaluated equation ${equation}`);
-				input.innerHTML = math.eval(equation);
+				input.textContent = math.eval(equation);
 			}
 
 			decimalAdded = false;
@@ -36,24 +36,93 @@ for (let i = 0; i < keys.length; i++) {
 			const lastChar = inputVal[inputVal.length - 1];
 
 			if (inputVal !== '' && operators.indexOf(lastChar) === -1) {
-				input.innerHTML += btnVal;
+				input.textContent += btnVal;
 			} else if (inputVal === '' && btnVal === '-') {
-				input.innerHTML += btnVal;
+				input.textContent += btnVal;
 			}
 
 			if (operators.indexOf(lastChar) > -1 && inputVal.length > 1) {
-				input.innerHTML = inputVal.replace(/.$/, btnVal);
+				input.textContent = inputVal.replace(/.$/, btnVal);
 			}
 
 			decimalAdded = false;
 		} else if (btnVal === '.') {
 			if (!decimalAdded) {
-				input.innerHTML += btnVal;
+				input.textContent += btnVal;
 				decimalAdded = true;
 			}
 		} else {
-			input.innerHTML += btnVal;
+			input.textContent += btnVal;
 		}
 		e.preventDefault();
 	});
 }
+
+// In this particular case, we need to disable the eqeqeq rule, for keyboard support to work correctly.
+/* eslint eqeqeq:0 */
+/* eslint complexity:0 */
+
+document.addEventListener('keydown', event => {
+	const keyPress = String.fromCharCode(event.keyCode);
+	const {keyCode} = event;
+	const input = document.querySelector('.screen');
+	const inputVal = input.textContent;
+	const lastChar = inputVal[inputVal.length - 1];
+	let equation = inputVal;
+
+	equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
+
+	if (keyPress == 1) {
+		input.textContent += keyPress;
+	}
+	if (keyPress == 2) {
+		input.textContent += keyPress;
+	}
+	if (keyPress == 3 || keyCode == 32) {
+		input.textContent += keyPress;
+	}
+	if (keyPress == 4) {
+		input.textContent += keyPress;
+	}
+	if (keyPress == 5) {
+		input.textContent += keyPress;
+	}
+	if (keyPress == 6) {
+		input.textContent += keyPress;
+	}
+	if (keyPress == 7) {
+		input.textContent += keyPress;
+	}
+	if (keyPress == 8 && event.shiftKey == false) {
+		input.textContent += keyPress;
+	}
+	if (keyPress == 9) {
+		input.textContent += keyPress;
+	}
+	if (keyPress == 0) {
+		input.textContent += keyPress;
+	}
+
+	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 187 && event.shiftKey) || (keyCode == 107) || (keyCode == 61 && event.shiftKey)) {
+		document.querySelector('.screen').textContent += '+';
+	}
+	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 189 && event.shiftKey) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 107)) {
+		document.querySelector('.screen').textContent += '-';
+	}
+	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 56 && event.shiftKey) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 106)) {
+		document.querySelector('.screen').textContent += 'x';
+	}
+	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 191) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 111)) {
+		document.querySelector('.screen').textContent += '÷';
+	}
+	if (keyCode == 13 && event.shiftKey == false) {
+		input.textContent = math.eval(equation);
+		decimalAdded = false;
+		logger.log(`Evaluated equation ${equation}`);
+	}
+	if (keyCode == 8) {
+		input.textContent = '';
+		decimalAdded = false;
+		logger.log(`Cleared calculator output`);
+	}
+});

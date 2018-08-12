@@ -23,6 +23,7 @@
     "ava": "*",
     "electron": "2.0.7",
     "electron-builder": "20.27.1",
+    "electron-reloader": "^0.2.0",
     "spectron": "*",
     "stylelint": "*",
     "stylelint-config-xo": "*",

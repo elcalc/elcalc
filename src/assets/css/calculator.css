@@ -1,15 +1,16 @@
 * {
-	margin: 0;
-	padding: 0;
+	margin: auto;
+	padding: auto;
 	box-sizing: border-box;
-	font: 700 14px Arial, sans-serif;
+	font: 600 14px Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
 }
 
 #calculator {
 	width: 325px;
 	height: auto;
 	padding: 20px;
-	padding-top: 35px;
+	padding-top: 45px;
 	background: #9ba6a7;
 	-webkit-app-region: drag;
 }
@@ -33,6 +34,7 @@
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 	text-align: right;
 	letter-spacing: 1px;
+	-webkit-app-region: no-drag;
 }
 
 .keys,
@@ -98,7 +100,7 @@ span.operator {
 }
 
 .keys span:active {
-	box-shadow: 0 0 #6b54d3;
+	box-shadow: 0 0 #757575;
 	top: 4px;
 }
 
