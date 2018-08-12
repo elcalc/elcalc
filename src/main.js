@@ -1,6 +1,10 @@
 const {app, BrowserWindow} = require('electron');
 const logger = require('electron-timber');
 
+try {
+	require('electron-reloader')(module);
+} catch (err) {}
+
 // Handle uncaught exceptions before calling any functions
 process.on('uncaughtException', err => {
 	logger.error('Uncaught error:\n', err);
@@ -8,14 +12,14 @@ process.on('uncaughtException', err => {
 
 app.on('ready', () => {
 	let win = new BrowserWindow({
-		width: 325,
-		height: 340,
+		width: 330,
+		height: 350,
 		maximizable: false,
 		resizable: false,
 		backgroundColor: '#9BA6A7',
 		darkTheme: true,
 		alwaysOnTop: true,
-		titleBarStyle: 'hidden',
+		titleBarStyle: 'hiddenInset',
 		show: false
 	});
 
