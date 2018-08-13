@@ -41,6 +41,15 @@ Check out [**the latest release**](https://github.com/elcalc/elcalc/releases/lat
 	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
 </a>
 
+## Keyboard Support
+
+| Key | Description |
+| ------:| -----------:|
+| <kbd>1,2,3,4,5,6,7,8,9,0</kbd> | Type numbers |
+| <kbd>Shift</kbd> + <kbd>+,-,/,*</kbd> | Type symbols |
+| <kbd>Enter</kbd> or <kbd>Return</kbd> | Evaluate equation |
+| <kbd>Backspace</kbd> | Clear calculator output |
+
 ### License
 
 MIT
