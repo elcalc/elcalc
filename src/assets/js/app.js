@@ -72,34 +72,34 @@ document.addEventListener('keydown', event => {
 
 	equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
 
-	if (keyPress == 1 || keyCode == 97) {
+	if (keyPress == 1 || keyCode == 49) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 2 || keyCode == 98) {
+	if (keyPress == 2 || keyCode == 50) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 3 || keyCode == 32 || keyCode == 99) {
+	if (keyPress == 3 || keyCode == 32 || keyCode == 51) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 4 || keyCode == 100) {
+	if (keyPress == 4 || keyCode == 52) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 5 || keyCode == 101) {
+	if (keyPress == 5 || keyCode == 53) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 6 || keyCode == 102) {
+	if (keyPress == 6 || keyCode == 54) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 7 || keyCode == 103) {
+	if (keyPress == 7 || keyCode == 55) {
 		input.textContent += keyPress;
 	}
-	if ((keyPress == 8 && event.shiftKey == false) || keyCode == 104) {
+	if ((keyPress == 8 && event.shiftKey == false) || keyCode == 56) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 9 || keyCode == 105) {
+	if (keyPress == 9 || keyCode == 57) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 0 || keyCode == 96) {
+	if (keyPress == 0 || keyCode == 48) {
 		input.textContent += keyPress;
 	}
 
