@@ -72,41 +72,41 @@ document.addEventListener('keydown', event => {
 
 	equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
 
-	if (keyPress == 1) {
+	if (keyPress == 1 || keyCode == 97) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 2) {
+	if (keyPress == 2 || keyCode == 98) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 3 || keyCode == 32) {
+	if (keyPress == 3 || keyCode == 32 || keyCode == 99) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 4) {
+	if (keyPress == 4 || keyCode == 100) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 5) {
+	if (keyPress == 5 || keyCode == 101) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 6) {
+	if (keyPress == 6 || keyCode == 102) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 7) {
+	if (keyPress == 7 || keyCode == 103) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 8 && event.shiftKey == false) {
+	if ((keyPress == 8 && event.shiftKey == false) || keyCode == 104) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 9) {
+	if (keyPress == 9 || keyCode == 105) {
 		input.textContent += keyPress;
 	}
-	if (keyPress == 0) {
+	if (keyPress == 0 || keyCode == 96) {
 		input.textContent += keyPress;
 	}
 
 	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 187 && event.shiftKey) || (keyCode == 107) || (keyCode == 61 && event.shiftKey)) {
 		document.querySelector('.screen').textContent += '+';
 	}
-	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 189 && event.shiftKey) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 107)) {
+	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 189 && event.shiftKey) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 109)) {
 		document.querySelector('.screen').textContent += '-';
 	}
 	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 56 && event.shiftKey) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 106)) {
@@ -114,6 +114,9 @@ document.addEventListener('keydown', event => {
 	}
 	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 191) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 111)) {
 		document.querySelector('.screen').textContent += '÷';
+	}
+	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 190) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 110)) {
+		document.querySelector('.screen').textContent += '.';
 	}
 	if (keyCode == 13 && event.shiftKey == false) {
 		input.textContent = math.eval(equation);
