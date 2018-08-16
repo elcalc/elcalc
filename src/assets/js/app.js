@@ -3,7 +3,7 @@ const keys = document.querySelectorAll('#calculator span');
 const math = require('mathjs');
 const logger = require('electron-timber');
 
-const operators = ['+', '-', '*', '÷'];
+const operators = ['+', '-', '*', '÷', '.'];
 let decimalAdded = false;
 
 for (let i = 0; i < keys.length; i++) {
@@ -58,12 +58,11 @@ for (let i = 0; i < keys.length; i++) {
 	});
 }
 
-// In this particular case, we need to disable the eqeqeq rule, for keyboard support to work correctly.
+// In this particular case, we need to disable some rules, for keyboard support to work correctly.
 /* eslint eqeqeq:0 */
 /* eslint complexity:0 */
 
 document.addEventListener('keydown', event => {
-	const keyPress = String.fromCharCode(event.keyCode);
 	const {keyCode} = event;
 	const input = document.querySelector('.screen');
 	const inputVal = input.textContent;
@@ -72,45 +71,45 @@ document.addEventListener('keydown', event => {
 
 	equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
 
-	if (keyPress == 1 || keyCode == 49) {
-		input.textContent += keyPress;
+	if (keyCode == 49) {
+		document.querySelector('.screen').textContent += '1';
 	}
-	if (keyPress == 2 || keyCode == 50) {
-		input.textContent += keyPress;
+	if (keyCode == 50) {
+		document.querySelector('.screen').textContent += '2';
 	}
-	if (keyPress == 3 || keyCode == 32 || keyCode == 51) {
-		input.textContent += keyPress;
+	if (keyCode == 51) {
+		document.querySelector('.screen').textContent += '3';
 	}
-	if (keyPress == 4 || keyCode == 52) {
-		input.textContent += keyPress;
+	if (keyCode == 52) {
+		document.querySelector('.screen').textContent += '4';
 	}
-	if (keyPress == 5 || keyCode == 53) {
-		input.textContent += keyPress;
+	if (keyCode == 53) {
+		document.querySelector('.screen').textContent += '5';
 	}
-	if (keyPress == 6 || keyCode == 54) {
-		input.textContent += keyPress;
+	if (keyCode == 54) {
+		document.querySelector('.screen').textContent += '6';
 	}
-	if (keyPress == 7 || keyCode == 55) {
-		input.textContent += keyPress;
+	if (keyCode == 55) {
+		document.querySelector('.screen').textContent += '7';
 	}
-	if ((keyPress == 8 && event.shiftKey == false) || keyCode == 56) {
-		input.textContent += keyPress;
+	if (keyCode == 56) {
+		document.querySelector('.screen').textContent += '8';
 	}
-	if (keyPress == 9 || keyCode == 57) {
-		input.textContent += keyPress;
+	if (keyCode == 57) {
+		document.querySelector('.screen').textContent += '9';
 	}
-	if (keyPress == 0 || keyCode == 48) {
-		input.textContent += keyPress;
+	if (keyCode == 48) {
+		document.querySelector('.screen').textContent += '0';
 	}
 
-	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 187 && event.shiftKey) || (keyCode == 107) || (keyCode == 61 && event.shiftKey)) {
+	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 187) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 107)) {
 		document.querySelector('.screen').textContent += '+';
 	}
-	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 189 && event.shiftKey) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 109)) {
+	if ((inputVal === '' && operators.indexOf(lastChar) == -1 && keyCode == 189) || (inputVal === '' && operators.indexOf(lastChar) == -1 && keyCode == 109)) {
 		document.querySelector('.screen').textContent += '-';
 	}
-	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 56 && event.shiftKey) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 106)) {
-		document.querySelector('.screen').textContent += 'x';
+	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 88) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 106)) {
+		document.querySelector('.screen').textContent += '*';
 	}
 	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 191) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 111)) {
 		document.querySelector('.screen').textContent += '÷';
