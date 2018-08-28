@@ -63,7 +63,7 @@ for (let i = 0; i < keys.length; i++) {
 /* eslint complexity:0 */
 
 document.addEventListener('keydown', event => {
-	const {keyCode} = event;
+	const {key, code} = event;
 	const input = document.querySelector('.screen');
 	const inputVal = input.textContent;
 	const lastChar = inputVal[inputVal.length - 1];
@@ -71,58 +71,58 @@ document.addEventListener('keydown', event => {
 
 	equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
 
-	if (keyCode == 49) {
+	if (key == 1) {
 		document.querySelector('.screen').textContent += '1';
 	}
-	if (keyCode == 50) {
+	if (key == 2) {
 		document.querySelector('.screen').textContent += '2';
 	}
-	if (keyCode == 51) {
+	if (key == 3) {
 		document.querySelector('.screen').textContent += '3';
 	}
-	if (keyCode == 52) {
+	if (key == 4) {
 		document.querySelector('.screen').textContent += '4';
 	}
-	if (keyCode == 53) {
+	if (key == 5) {
 		document.querySelector('.screen').textContent += '5';
 	}
-	if (keyCode == 54) {
+	if (key == 6) {
 		document.querySelector('.screen').textContent += '6';
 	}
-	if (keyCode == 55) {
+	if (key == 7) {
 		document.querySelector('.screen').textContent += '7';
 	}
-	if (keyCode == 56) {
+	if (key == 8) {
 		document.querySelector('.screen').textContent += '8';
 	}
-	if (keyCode == 57) {
+	if (key == 9) {
 		document.querySelector('.screen').textContent += '9';
 	}
-	if (keyCode == 48) {
+	if (key == 0) {
 		document.querySelector('.screen').textContent += '0';
 	}
 
-	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 187) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 107)) {
+	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'Equal') || (inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'NumpadAdd')) {
 		document.querySelector('.screen').textContent += '+';
 	}
-	if ((inputVal === '' && operators.indexOf(lastChar) == -1 && keyCode == 189) || (inputVal === '' && operators.indexOf(lastChar) == -1 && keyCode == 109)) {
+	if ((operators.indexOf(lastChar) == -1 && code == 'Minus') || (operators.indexOf(lastChar) == -1 && code == 'NumpadSubtract')) {
 		document.querySelector('.screen').textContent += '-';
 	}
-	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 88) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 106)) {
+	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'NumpadMultiply') || (operators.indexOf(lastChar) == -1 && code == 'KeyX')) {
 		document.querySelector('.screen').textContent += '*';
 	}
-	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 191) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 111)) {
+	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'Slash') || (operators.indexOf(lastChar) == -1 && code == 'NumpadDivide')) {
 		document.querySelector('.screen').textContent += '÷';
 	}
-	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 190) || (inputVal != '' && operators.indexOf(lastChar) == -1 && keyCode == 110)) {
+	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'Period') || (inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'NumpadDecimal')) {
 		document.querySelector('.screen').textContent += '.';
 	}
-	if (keyCode == 13 && event.shiftKey == false) {
+	if ((code == 'NumpadEnter' && event.shiftKey == false) || (code == 'Enter' && event.shiftKey == false)) {
 		input.textContent = math.eval(equation);
 		decimalAdded = false;
 		logger.log(`Evaluated equation ${equation}`);
 	}
-	if (keyCode == 8) {
+	if ((code == 'Backspace') || (code == 'Delete')) {
 		input.textContent = '';
 		decimalAdded = false;
 		logger.log(`Cleared calculator output`);
