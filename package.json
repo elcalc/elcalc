@@ -1,6 +1,6 @@
 {
   "name": "elcalc",
-  "version": "5.0.0-beta.3",
+  "version": "5.0.0-rc.1",
   "description": "Simple, Cross-Platform calculator built with Electron",
   "license": "MIT",
   "main": "src/main.js",

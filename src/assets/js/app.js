@@ -71,34 +71,34 @@ document.addEventListener('keydown', event => {
 
 	equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
 
-	if (key == 1) {
+	if (key == 1 || code == 'Numpad1') {
 		document.querySelector('.screen').textContent += '1';
 	}
-	if (key == 2) {
+	if (key == 2 || code == 'Numpad2') {
 		document.querySelector('.screen').textContent += '2';
 	}
-	if (key == 3) {
+	if (key == 3 || code == 'Numpad3') {
 		document.querySelector('.screen').textContent += '3';
 	}
-	if (key == 4) {
+	if (key == 4 || code == 'Numpad4') {
 		document.querySelector('.screen').textContent += '4';
 	}
-	if (key == 5) {
+	if (key == 5 || code == 'Numpad5') {
 		document.querySelector('.screen').textContent += '5';
 	}
-	if (key == 6) {
+	if (key == 6 || code == 'Numpad6') {
 		document.querySelector('.screen').textContent += '6';
 	}
-	if (key == 7) {
+	if (key == 7 || code == 'Numpad7') {
 		document.querySelector('.screen').textContent += '7';
 	}
-	if (key == 8) {
+	if (key == 8 || code == 'Numpad8') {
 		document.querySelector('.screen').textContent += '8';
 	}
-	if (key == 9) {
+	if (key == 9 || code == 'Numpad9') {
 		document.querySelector('.screen').textContent += '9';
 	}
-	if (key == 0) {
+	if (key == 0 || code == 'Numpad0') {
 		document.querySelector('.screen').textContent += '0';
 	}
 
