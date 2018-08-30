@@ -1,65 +1,44 @@
 {
-  "name": "elcalc",
-  "version": "5.0.0-rc.1",
-  "description": "Simple, Cross-Platform calculator built with Electron",
-  "license": "MIT",
-  "main": "src/main.js",
-  "repository": "elcalc/elcalc",
-  "author": {
-    "name": "Antoni Kepinski",
-    "email": "a@kepinski.me",
-    "url": "kepinski.me"
+  "name": "oji",
+  "version": "3.2.3",
+  "description": "(◕‿◕) Text Emoticon Maker",
+  "bin": {
+    "oji": "./bin/cli"
   },
-  "scripts": {
-    "start": "electron .",
-    "test": "xo && stylelint 'src/assets/css/*.css' && ava",
-    "dist": "electron-builder --mac --linux --win"
-  },
+  "preferGlobal": "true",
   "dependencies": {
-    "electron-timber": "^0.5.1",
-    "mathjs": "^5.1.1"
+    "chalk": "^2.4.1",
+    "clipboardy": "^1.2.3",
+    "inquirer": "^6.2.0",
+    "log-symbols": "^2.2.0",
+    "opn": "^5.3.0"
   },
   "devDependencies": {
-    "ava": "*",
-    "electron": "2.0.8",
-    "electron-builder": "20.28.3",
-    "electron-reloader": "^0.2.0",
-    "spectron": "*",
-    "stylelint": "*",
-    "stylelint-config-xo": "*",
     "xo": "*"
   },
-  "stylelint": {
-    "extends": "stylelint-config-xo",
+  "xo": {
     "rules": {
-      "property-no-vendor-prefix": null,
-      "property-blacklist": null,
-      "no-duplicate-selectors": null,
-      "declaration-property-value-blacklist": null,
-      "font-weight-notation": null
+      "unicorn/no-process-exit": 0
     }
   },
-  "build": {
-    "files": [
-      "**/*",
-      "build/icon.*"
-    ],
-    "appId": "me.kepinski.elcalc",
-    "mac": {
-      "category": "public.app-category.utilities"
-    },
-    "dmg": {
-      "iconSize": 150
-    },
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb",
-        "rpm"
-      ],
-      "synopsis": "Simple, Cross-Platform Calculator",
-      "description": "Simple, Cross-Platform calculator built with Electron.",
-      "category": "Utility;Calculator"
-    }
-  }
+  "scripts": {
+    "test": "xo"
+  },
+  "repository": "https://github.com/xxczaki/oji",
+  "keywords": [
+    "oji",
+    "emoji",
+    "japanese",
+    "japan",
+    "cli",
+    "lenny",
+    "emoticon",
+    "interactive"
+  ],
+  "author": "Antoni Kepinski <a@kepinski.me> (https://kepinski.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xxczaki/oji/issues"
+  },
+  "homepage": "https://github.com/xxczaki/oji#readme"
 }
