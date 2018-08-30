@@ -1,0 +1,65 @@
+{
+  "name": "elcalc",
+  "version": "5.0.0-rc.1",
+  "description": "Simple, Cross-Platform calculator built with Electron",
+  "license": "MIT",
+  "main": "src/main.js",
+  "repository": "elcalc/elcalc",
+  "author": {
+    "name": "Antoni Kepinski",
+    "email": "a@kepinski.me",
+    "url": "kepinski.me"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "xo && stylelint 'src/assets/css/*.css' && ava",
+    "dist": "electron-builder --mac --linux --win"
+  },
+  "dependencies": {
+    "electron-timber": "^0.5.1",
+    "mathjs": "^5.1.1"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "electron": "2.0.8",
+    "electron-builder": "20.28.3",
+    "electron-reloader": "^0.2.0",
+    "spectron": "*",
+    "stylelint": "*",
+    "stylelint-config-xo": "*",
+    "xo": "*"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-xo",
+    "rules": {
+      "property-no-vendor-prefix": null,
+      "property-blacklist": null,
+      "no-duplicate-selectors": null,
+      "declaration-property-value-blacklist": null,
+      "font-weight-notation": null
+    }
+  },
+  "build": {
+    "files": [
+      "**/*",
+      "build/icon.*"
+    ],
+    "appId": "me.kepinski.elcalc",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "dmg": {
+      "iconSize": 150
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm"
+      ],
+      "synopsis": "Simple, Cross-Platform Calculator",
+      "description": "Simple, Cross-Platform calculator built with Electron.",
+      "category": "Utility;Calculator"
+    }
+  }
+}
