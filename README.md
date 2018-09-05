@@ -45,7 +45,7 @@ Check out [**the latest release**](https://github.com/elcalc/elcalc/releases/lat
 
 | Key | Description |
 | ------:| -----------:|
-| <kbd>1,2,3,4,5,6,7,8,9,0</kbd> | Type numbers |
+| <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>, <kbd>4</kbd>, <kbd>5</kbd>, <kbd>6</kbd>, <kbd>7</kbd>, <kbd>8</kbd>, <kbd>9</kbd>, <kbd>0</kbd> | Type numbers |
 | <kbd>+</kbd>, <kbd>-</kbd>, <kbd>* or x</kbd>, <kbd>/</kbd>, <kbd>.</kbd>  | Type symbols |
 | <kbd>Enter</kbd> or <kbd>Return</kbd> | Evaluate equation |
 | <kbd>Backspace</kbd> or <kbd>Delete</kbd> | Clear calculator output |
