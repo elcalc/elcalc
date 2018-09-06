@@ -6,6 +6,14 @@
 	-webkit-font-smoothing: antialiased;
 }
 
+::-webkit-scrollbar {
+	display: none;
+}
+
+::selection {
+	background: #757575;
+}
+
 #calculator {
 	width: 325px;
 	height: auto;

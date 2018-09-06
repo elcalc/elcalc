@@ -26,6 +26,6 @@ test('General test', async t => {
 	t.true(await win.isFocused());
 
 	const {width, height} = await win.getBounds();
-	t.true(width > 0);
-	t.true(height > 0);
+	t.true(width === 330);
+	t.true(height === 350);
 });

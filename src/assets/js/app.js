@@ -1,14 +1,16 @@
-/* global document */
 const keys = document.querySelectorAll('#calculator span');
 const math = require('mathjs');
 const logger = require('electron-timber');
 
 const operators = ['+', '-', '*', '÷', '.'];
+const input = document.querySelector('.screen');
+
 let decimalAdded = false;
+
+/* Buttons */
 
 for (let i = 0; i < keys.length; i++) {
 	keys[i].addEventListener('click', function (e) {
-		const input = document.querySelector('.screen');
 		const inputVal = input.textContent;
 		const btnVal = this.textContent;
 
@@ -58,13 +60,14 @@ for (let i = 0; i < keys.length; i++) {
 	});
 }
 
-// In this particular case, we need to disable some rules, for keyboard support to work correctly.
+/* Keyboard support */
+
+// In this particular case, we need to disable some eslint rules, for keyboard support to work correctly.
 /* eslint eqeqeq:0 */
 /* eslint complexity:0 */
 
 document.addEventListener('keydown', event => {
 	const {key, code} = event;
-	const input = document.querySelector('.screen');
 	const inputVal = input.textContent;
 	const lastChar = inputVal[inputVal.length - 1];
 	let equation = inputVal;
@@ -72,50 +75,50 @@ document.addEventListener('keydown', event => {
 	equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
 
 	if (key == 1 || code == 'Numpad1') {
-		document.querySelector('.screen').textContent += '1';
+		input.textContent += '1';
 	}
 	if (key == 2 || code == 'Numpad2') {
-		document.querySelector('.screen').textContent += '2';
+		input.textContent += '2';
 	}
 	if (key == 3 || code == 'Numpad3') {
-		document.querySelector('.screen').textContent += '3';
+		input.textContent += '3';
 	}
 	if (key == 4 || code == 'Numpad4') {
-		document.querySelector('.screen').textContent += '4';
+		input.textContent += '4';
 	}
 	if (key == 5 || code == 'Numpad5') {
-		document.querySelector('.screen').textContent += '5';
+		input.textContent += '5';
 	}
 	if (key == 6 || code == 'Numpad6') {
-		document.querySelector('.screen').textContent += '6';
+		input.textContent += '6';
 	}
 	if (key == 7 || code == 'Numpad7') {
-		document.querySelector('.screen').textContent += '7';
+		input.textContent += '7';
 	}
 	if (key == 8 || code == 'Numpad8') {
-		document.querySelector('.screen').textContent += '8';
+		input.textContent += '8';
 	}
 	if (key == 9 || code == 'Numpad9') {
-		document.querySelector('.screen').textContent += '9';
+		input.textContent += '9';
 	}
 	if (key == 0 || code == 'Numpad0') {
-		document.querySelector('.screen').textContent += '0';
+		input.textContent += '0';
 	}
 
 	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'Equal') || (inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'NumpadAdd')) {
-		document.querySelector('.screen').textContent += '+';
+		input.textContent += '+';
 	}
 	if ((operators.indexOf(lastChar) == -1 && code == 'Minus') || (operators.indexOf(lastChar) == -1 && code == 'NumpadSubtract')) {
-		document.querySelector('.screen').textContent += '-';
+		input.textContent += '-';
 	}
 	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'NumpadMultiply') || (operators.indexOf(lastChar) == -1 && code == 'KeyX')) {
-		document.querySelector('.screen').textContent += '*';
+		input.textContent += '*';
 	}
 	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'Slash') || (operators.indexOf(lastChar) == -1 && code == 'NumpadDivide')) {
-		document.querySelector('.screen').textContent += '÷';
+		input.textContent += '÷';
 	}
 	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'Period') || (inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'NumpadDecimal')) {
-		document.querySelector('.screen').textContent += '.';
+		input.textContent += '.';
 	}
 	if ((code == 'NumpadEnter' && event.shiftKey == false) || (code == 'Enter' && event.shiftKey == false)) {
 		input.textContent = math.eval(equation);
