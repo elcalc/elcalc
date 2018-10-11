@@ -67,7 +67,7 @@ for (let i = 0; i < keys.length; i++) {
 /* eslint complexity:0 */
 
 document.addEventListener('keydown', event => {
-	const code = event.code;
+	const {code} = event;
 	const inputVal = input.textContent;
 	const lastChar = inputVal[inputVal.length - 1];
 	if ((code.startsWith('Numpad') || code.startsWith('Digit')) && '0123456789'.includes(code.slice(-1))) {
@@ -95,12 +95,12 @@ document.addEventListener('keydown', event => {
 	}
 
 	if (event.shiftKey == false && (code == 'NumpadEnter' || code == 'Enter')) {
-		let equation = inputVal.replace(/x/g, '*').replace(/÷/g, '/');
+		const equation = inputVal.replace(/x/g, '*').replace(/÷/g, '/');
 		input.textContent = math.eval(equation);
 		decimalAdded = false;
 		logger.log(`Evaluated equation ${equation}`);
 	}
-	
+
 	if (code == 'Backspace' || code == 'Delete') {
 		input.textContent = '';
 		decimalAdded = false;
