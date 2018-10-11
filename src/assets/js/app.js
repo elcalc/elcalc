@@ -67,65 +67,40 @@ for (let i = 0; i < keys.length; i++) {
 /* eslint complexity:0 */
 
 document.addEventListener('keydown', event => {
-	const {key, code} = event;
+	const code = event.code;
 	const inputVal = input.textContent;
 	const lastChar = inputVal[inputVal.length - 1];
-	let equation = inputVal;
-
-	equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
-
-	if (key == 1 || code == 'Numpad1') {
-		input.textContent += '1';
-	}
-	if (key == 2 || code == 'Numpad2') {
-		input.textContent += '2';
-	}
-	if (key == 3 || code == 'Numpad3') {
-		input.textContent += '3';
-	}
-	if (key == 4 || code == 'Numpad4') {
-		input.textContent += '4';
-	}
-	if (key == 5 || code == 'Numpad5') {
-		input.textContent += '5';
-	}
-	if (key == 6 || code == 'Numpad6') {
-		input.textContent += '6';
-	}
-	if (key == 7 || code == 'Numpad7') {
-		input.textContent += '7';
-	}
-	if (key == 8 || code == 'Numpad8') {
-		input.textContent += '8';
-	}
-	if (key == 9 || code == 'Numpad9') {
-		input.textContent += '9';
-	}
-	if (key == 0 || code == 'Numpad0') {
-		input.textContent += '0';
+	if ((code.startsWith('Numpad') || code.startsWith('Digit')) && '0123456789'.includes(code.slice(-1))) {
+		input.textContent += code.slice(-1);
 	}
 
-	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'Equal') || (inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'NumpadAdd')) {
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Equal' || code == 'NumpadAdd')) {
 		input.textContent += '+';
 	}
-	if ((operators.indexOf(lastChar) == -1 && code == 'Minus') || (operators.indexOf(lastChar) == -1 && code == 'NumpadSubtract')) {
+
+	if (operators.indexOf(lastChar) == -1 && (code == 'Minus' || code == 'NumpadSubtract')) {
 		input.textContent += '-';
 	}
-	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'NumpadMultiply') || (operators.indexOf(lastChar) == -1 && code == 'KeyX')) {
+
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'KeyX' || code == 'NumpadMultiply')) {
 		input.textContent += '*';
 	}
-	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'Slash') || (operators.indexOf(lastChar) == -1 && code == 'NumpadDivide')) {
+
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Slash' || code == 'NumpadDivide')) {
 		input.textContent += '÷';
 	}
-	if ((inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'Period') || (inputVal != '' && operators.indexOf(lastChar) == -1 && code == 'NumpadDecimal')) {
+
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Period' || code == 'NumpadDecimal')) {
 		input.textContent += '.';
 	}
-	if ((code == 'NumpadEnter' && event.shiftKey == false) || (code == 'Enter' && event.shiftKey == false)) {
+
+	if (event.shiftKey == false && (code == 'NumpadEnter' || code == 'Enter')) {
+		let equation = inputVal.replace(/x/g, '*').replace(/÷/g, '/');
 		input.textContent = math.eval(equation);
 		decimalAdded = false;
 		logger.log(`Evaluated equation ${equation}`);
 	}
-	if ((code == 'Backspace') || (code == 'Delete')) {
+	if (code == 'Backspace' || code == 'Delete') {
 		input.textContent = '';
 		decimalAdded = false;
 		logger.log(`Cleared calculator output`);
