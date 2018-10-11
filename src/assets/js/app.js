@@ -100,6 +100,7 @@ document.addEventListener('keydown', event => {
 		decimalAdded = false;
 		logger.log(`Evaluated equation ${equation}`);
 	}
+	
 	if (code == 'Backspace' || code == 'Delete') {
 		input.textContent = '';
 		decimalAdded = false;
