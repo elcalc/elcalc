@@ -53,7 +53,6 @@ for (let i = 0; i < keys.length; i++) {
 				input.textContent += btnVal;
 				decimalAdded = false;
 			}
-
 		} else {
 			input.textContent += btnVal;
 		}
