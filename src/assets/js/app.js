@@ -5,7 +5,7 @@ const logger = require('electron-timber');
 const operators = ['+', '-', '*', '÷'];
 const input = document.querySelector('.screen');
 
-var decimalAdded = true;
+let decimalAdded = true;
 
 /* Buttons */
 
@@ -18,7 +18,6 @@ for (let i = 0; i < keys.length; i++) {
 			input.textContent = '';
 			decimalAdded = true;
 			logger.log('Cleared calculator output');
-			
 		} else if (btnVal === '=') {
 			let equation = inputVal;
 			const lastChar = equation[equation.length - 1];
@@ -54,7 +53,7 @@ for (let i = 0; i < keys.length; i++) {
 				input.textContent += btnVal;
 				decimalAdded = false;
 			}
-			
+
 		} else {
 			input.textContent += btnVal;
 		}
@@ -96,7 +95,7 @@ document.addEventListener('keydown', event => {
 		decimalAdded = true;
 	}
 
-	if ( (code == 'Period' || code == 'NumpadDecimal') && decimalAdded == true) {
+	if ((code == 'Period' || code == 'NumpadDecimal') && decimalAdded == true) {
 		input.textContent += '.';
 		decimalAdded = false;
 	}
