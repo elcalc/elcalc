@@ -14,7 +14,7 @@ for (let i = 0; i < keys.length; i++) {
 		const inputVal = input.textContent;
 		const btnVal = this.textContent;
 
-		if (btnVal === 'C') {
+		if (btnVal === 'C' || (btnVal === '√' && input.textContent === '')) {
 			input.textContent = '';
 			decimalAdded = true;
 			logger.log('Cleared calculator output');
@@ -53,6 +53,9 @@ for (let i = 0; i < keys.length; i++) {
 				input.textContent += btnVal;
 				decimalAdded = false;
 			}
+		} else if (btnVal === '√' && input.textContent !== '') {
+			input.textContent = `sqrt(${input.textContent})`;
+			decimalAdded = false;
 		} else {
 			input.textContent += btnVal;
 		}
@@ -91,6 +94,11 @@ document.addEventListener('keydown', event => {
 
 	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Slash' || code == 'NumpadDivide')) {
 		input.textContent += '÷';
+		decimalAdded = true;
+	}
+
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'KeyV')) {
+		input.textContent = `sqrt(${input.textContent})`;
 		decimalAdded = true;
 	}
 
