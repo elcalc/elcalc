@@ -2,10 +2,10 @@ const keys = document.querySelectorAll('#calculator span');
 const math = require('mathjs');
 const logger = require('electron-timber');
 
-const operators = ['+', '-', '*', '÷', '.'];
+const operators = ['+', '-', '*', '÷'];
 const input = document.querySelector('.screen');
 
-let decimalAdded = false;
+var decimalAdded = true;
 
 /* Buttons */
 
@@ -16,8 +16,9 @@ for (let i = 0; i < keys.length; i++) {
 
 		if (btnVal === 'C') {
 			input.textContent = '';
-			decimalAdded = false;
+			decimalAdded = true;
 			logger.log('Cleared calculator output');
+			
 		} else if (btnVal === '=') {
 			let equation = inputVal;
 			const lastChar = equation[equation.length - 1];
@@ -47,12 +48,13 @@ for (let i = 0; i < keys.length; i++) {
 				input.textContent = inputVal.replace(/.$/, btnVal);
 			}
 
-			decimalAdded = false;
+			decimalAdded = true;
 		} else if (btnVal === '.') {
-			if (!decimalAdded) {
+			if (decimalAdded == true) {
 				input.textContent += btnVal;
-				decimalAdded = true;
+				decimalAdded = false;
 			}
+			
 		} else {
 			input.textContent += btnVal;
 		}
@@ -76,27 +78,33 @@ document.addEventListener('keydown', event => {
 
 	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Equal' || code == 'NumpadAdd')) {
 		input.textContent += '+';
+		decimalAdded = true;
 	}
 
 	if (operators.indexOf(lastChar) == -1 && (code == 'Minus' || code == 'NumpadSubtract')) {
 		input.textContent += '-';
+		decimalAdded = true;
 	}
 
 	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'KeyX' || code == 'NumpadMultiply')) {
 		input.textContent += '*';
+		decimalAdded = true;
 	}
 
 	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Slash' || code == 'NumpadDivide')) {
 		input.textContent += '÷';
+		decimalAdded = true;
 	}
 
-	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Period' || code == 'NumpadDecimal')) {
+	if ( (code == 'Period' || code == 'NumpadDecimal') && decimalAdded == true) {
 		input.textContent += '.';
+		decimalAdded = false;
 	}
 
 	if (event.shiftKey == false && (code == 'NumpadEnter' || code == 'Enter')) {
 		const equation = inputVal.replace(/x/g, '*').replace(/÷/g, '/');
 		input.textContent = math.eval(equation);
+		decimalAdded = false;
 		decimalAdded = false;
 		logger.log(`Evaluated equation ${equation}`);
 	}
@@ -104,6 +112,7 @@ document.addEventListener('keydown', event => {
 	if (code == 'Backspace' || code == 'Delete') {
 		input.textContent = '';
 		decimalAdded = false;
+		decimalAdded = true;
 		logger.log(`Cleared calculator output`);
 	}
 });
