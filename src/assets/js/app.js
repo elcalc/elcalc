@@ -103,13 +103,11 @@ document.addEventListener('keydown', event => {
 		const equation = inputVal.replace(/x/g, '*').replace(/÷/g, '/');
 		input.textContent = math.eval(equation);
 		decimalAdded = false;
-		decimalAdded = false;
 		logger.log(`Evaluated equation ${equation}`);
 	}
 
 	if (code == 'Backspace' || code == 'Delete') {
 		input.textContent = '';
-		decimalAdded = false;
 		decimalAdded = true;
 		logger.log(`Cleared calculator output`);
 	}
