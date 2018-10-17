@@ -27,5 +27,5 @@ test('General test', async t => {
 
 	const {width, height} = await win.getBounds();
 	t.true(width === 330);
-	t.true(height === 400);
+	t.true(height === 440);
 });
