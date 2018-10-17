@@ -30,6 +30,9 @@ for (let i = 0; i < keys.length; i++) {
 		} else if (btnVal === '|x|' && input.textContent === '') {
 			input.textContent = '';
 			decimalAdded = true;
+		} else if (btnVal === 'x!' && input.textContent === '') {
+			input.textContent = '';
+			decimalAdded = true;
 		} else if (btnVal === '=') {
 			let equation = inputVal;
 			const lastChar = equation[equation.length - 1];
@@ -71,6 +74,9 @@ for (let i = 0; i < keys.length; i++) {
 			decimalAdded = false;
 		} else if (btnVal === '|x|') {
 			input.textContent = 'abs(' + input.textContent + ')';
+			decimalAdded = false;
+		} else if (btnVal === 'x!' && input.textContent !== '') {
+			input.textContent += '!';
 			decimalAdded = false;
 		} else {
 			input.textContent += btnVal;
