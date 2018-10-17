@@ -3,7 +3,7 @@ const logger = require('electron-timber');
 
 try {
 	require('electron-reloader')(module);
-} catch (err) {}
+} catch (error) {}
 
 // Handle uncaught exceptions before calling any functions
 process.on('uncaughtException', err => {
@@ -13,7 +13,7 @@ process.on('uncaughtException', err => {
 app.on('ready', () => {
 	let win = new BrowserWindow({
 		width: 330,
-		height: 350,
+		height: 400,
 		maximizable: false,
 		resizable: false,
 		backgroundColor: '#9BA6A7',
@@ -32,7 +32,7 @@ app.on('ready', () => {
 	});
 
 	win.on('closed', () => {
-		logger.log(`App closed`);
+		logger.log('App closed');
 		win = null;
 		app.quit();
 	});

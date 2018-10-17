@@ -2,7 +2,7 @@ const keys = document.querySelectorAll('#calculator span');
 const math = require('mathjs');
 const logger = require('electron-timber');
 
-const operators = ['+', '-', '*', '÷'];
+const operators = ['+', '-', '*', '/'];
 const input = document.querySelector('.screen');
 
 let decimalAdded = true;
@@ -18,11 +18,21 @@ for (let i = 0; i < keys.length; i++) {
 			input.textContent = '';
 			decimalAdded = true;
 			logger.log('Cleared calculator output');
+		} else if (btnVal === '√' && input.textContent === '') {
+			input.textContent = '';
+			decimalAdded = true;
+		} else if (btnVal === '%' && input.textContent === '') {
+			input.textContent = '';
+			decimalAdded = true;
+		} else if (btnVal === 'x²' && input.textContent === '') {
+			input.textContent = '';
+			decimalAdded = true;
+		} else if (btnVal === '|x|' && input.textContent === '') {
+			input.textContent = '';
+			decimalAdded = true;
 		} else if (btnVal === '=') {
 			let equation = inputVal;
 			const lastChar = equation[equation.length - 1];
-
-			equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
 
 			if (operators.indexOf(lastChar) > -1 || lastChar === '.') {
 				equation = equation.replace(/.$/, '');
@@ -53,6 +63,15 @@ for (let i = 0; i < keys.length; i++) {
 				input.textContent += btnVal;
 				decimalAdded = false;
 			}
+		} else if (btnVal === 'x²') {
+			input.textContent = 'pow(' + input.textContent + ',2)';
+			decimalAdded = false;
+		} else if (btnVal === '√' && input.textContent !== '') {
+			input.textContent = `sqrt(${input.textContent})`;
+			decimalAdded = false;
+		} else if (btnVal === '|x|') {
+			input.textContent = 'abs(' + input.textContent + ')';
+			decimalAdded = false;
 		} else {
 			input.textContent += btnVal;
 		}
@@ -90,7 +109,7 @@ document.addEventListener('keydown', event => {
 	}
 
 	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Slash' || code == 'NumpadDivide')) {
-		input.textContent += '÷';
+		input.textContent += '/';
 		decimalAdded = true;
 	}
 
@@ -109,6 +128,6 @@ document.addEventListener('keydown', event => {
 	if (code == 'Backspace' || code == 'Delete') {
 		input.textContent = '';
 		decimalAdded = true;
-		logger.log(`Cleared calculator output`);
+		logger.log('Cleared calculator output');
 	}
 });
