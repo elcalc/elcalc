@@ -36,10 +36,16 @@ for (let i = 0; i < keys.length; i++) {
 		} else if (btnVal === 'x!' && input.textContent === '') {
 			input.textContent = '';
 			decimalAdded = true;
+		} else if (btnVal === 'log𝑏(x)' && input.textContent === '') {
+			input.textContent = '';
+			decimalAdded = true;
 		} else if (btnVal !== '' && input.textContent.startsWith('pow(') && !input.textContent.endsWith(')')) {
 			input.textContent += btnVal + ')';
 			decimalAdded = true;
 		} else if (btnVal !== '' && input.textContent.startsWith('nthRoot(') && !input.textContent.endsWith(')')) {
+			input.textContent += btnVal + ')';
+			decimalAdded = true;
+		} else if (btnVal !== '' && input.textContent.startsWith('log(') && !input.textContent.endsWith(')')) {
 			input.textContent += btnVal + ')';
 			decimalAdded = true;
 		} else if (btnVal === '=') {
@@ -91,6 +97,9 @@ for (let i = 0; i < keys.length; i++) {
 			decimalAdded = false;
 		} else if (btnVal === 'ʸ√x' && input.textContent !== '') {
 			input.textContent = 'nthRoot(' + input.textContent + ',';
+			decimalAdded = false;
+		} else if (btnVal === 'log𝑏(x)' && input.textContent !== '') {
+			input.textContent = 'log(' + input.textContent + ',';
 			decimalAdded = false;
 		} else if (btnVal === '|x|') {
 			input.textContent = 'abs(' + input.textContent + ')';
