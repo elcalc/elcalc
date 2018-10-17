@@ -21,6 +21,9 @@ for (let i = 0; i < keys.length; i++) {
 		} else if (btnVal === '√' && input.textContent === '') {
 			input.textContent = '';
 			decimalAdded = true;
+		} else if (btnVal === 'ʸ√x' && input.textContent === '') {
+			input.textContent = '';
+			decimalAdded = true;
 		} else if (btnVal === '%' && input.textContent === '') {
 			input.textContent = '';
 			decimalAdded = true;
@@ -32,6 +35,12 @@ for (let i = 0; i < keys.length; i++) {
 			decimalAdded = true;
 		} else if (btnVal === 'x!' && input.textContent === '') {
 			input.textContent = '';
+			decimalAdded = true;
+		} else if (btnVal !== '' && input.textContent.startsWith('pow(') && !input.textContent.endsWith(')')) {
+			input.textContent += btnVal + ')';
+			decimalAdded = true;
+		} else if (btnVal !== '' && input.textContent.startsWith('nthRoot(') && !input.textContent.endsWith(')')) {
+			input.textContent += btnVal + ')';
 			decimalAdded = true;
 		} else if (btnVal === '=') {
 			let equation = inputVal;
@@ -74,8 +83,14 @@ for (let i = 0; i < keys.length; i++) {
 		} else if (btnVal === 'x²') {
 			input.textContent = 'pow(' + input.textContent + ',2)';
 			decimalAdded = false;
-		} else if (btnVal === '√' && input.textContent !== '') {
+		} else if (btnVal === 'xʸ') {
+			input.textContent = 'pow(' + input.textContent + ',';
+			decimalAdded = false;
+		} else if (btnVal === '√x' && input.textContent !== '') {
 			input.textContent = `sqrt(${input.textContent})`;
+			decimalAdded = false;
+		} else if (btnVal === 'ʸ√x' && input.textContent !== '') {
+			input.textContent = 'nthRoot(' + input.textContent + ',';
 			decimalAdded = false;
 		} else if (btnVal === '|x|') {
 			input.textContent = 'abs(' + input.textContent + ')';
