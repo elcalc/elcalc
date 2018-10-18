@@ -127,7 +127,7 @@ document.addEventListener('keydown', event => {
 	const {code} = event;
 	const inputVal = input.textContent;
 	const lastChar = inputVal[inputVal.length - 1];
-	if ((code.startsWith('Numpad') || code.startsWith('Digit')) && '0123456789'.includes(code.slice(-1))) {
+	if (event.shiftKey == false && (code.startsWith('Numpad') || code.startsWith('Digit')) && '0123456789'.includes(code.slice(-1))) {
 		input.textContent += code.slice(-1);
 	}
 
@@ -141,12 +141,13 @@ document.addEventListener('keydown', event => {
 		decimalAdded = true;
 	}
 
-	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'KeyX' || code == 'NumpadMultiply')) {
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 &&
+		((code == 'KeyX' || code == 'NumpadMultiply')) || (code == 'Digit8' && event.shiftKey)) {
 		input.textContent += '*';
 		decimalAdded = true;
 	}
 
-	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Slash' || code == 'NumpadDivide')) {
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Slash' || code == 'IntlRo' || code == 'NumpadDivide')) {
 		input.textContent += '/';
 		decimalAdded = true;
 	}
@@ -154,6 +155,16 @@ document.addEventListener('keydown', event => {
 	if ((code == 'Period' || code == 'NumpadDecimal') && decimalAdded == true) {
 		input.textContent += '.';
 		decimalAdded = false;
+	}
+
+	if(inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Digit5' && event.shiftKey)) {
+		input.textContent += '%';
+		decimalAdded = true;
+	}
+
+	if(inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Digit1' && event.shiftKey)) {
+		input.textContent += '!';
+		decimalAdded = true;
 	}
 
 	if (event.shiftKey == false && (code == 'NumpadEnter' || code == 'Enter')) {
