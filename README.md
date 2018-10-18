@@ -2,7 +2,7 @@
 
 # elcalc  [![Build Status](https://travis-ci.org/elcalc/elcalc.svg?branch=master)](https://travis-ci.org/elcalc/elcalc) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo) [![Mentioned in Awesome Calculators](https://awesome.re/mentioned-badge.svg)](https://github.com/xxczaki/awesome-calculators)
 
-Elcalc is a simple, cross-platform calculator, built with [Electron](https://electronjs.org/). It is fast, intuitive and can be used as an alternative for the default system calculator. It supports basic arithmetic operations.
+Elcalc is a cross-platform calculator, built with [Electron](https://electronjs.org/). It is fast, intuitive and can be used as an alternative for the default system calculator. It supports basic arithmetic operations, as well as some scientific functions.
 
 ---
 
