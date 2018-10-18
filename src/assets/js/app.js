@@ -24,6 +24,9 @@ for (let i = 0; i < keys.length; i++) {
 		} else if (btnVal === 'ʸ√x' && input.textContent === '') {
 			input.textContent = '';
 			decimalAdded = true;
+		} else if (btnVal === 'xʸ' && input.textContent === '') {
+			input.textContent = '';
+			decimalAdded = true;
 		} else if (btnVal === '%' && input.textContent === '') {
 			input.textContent = '';
 			decimalAdded = true;
@@ -145,11 +148,6 @@ document.addEventListener('keydown', event => {
 
 	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Slash' || code == 'NumpadDivide')) {
 		input.textContent += '/';
-		decimalAdded = true;
-	}
-
-	if (inputVal != '' && operators.indexOf(lastChar) == -1 && event.shiftKey == true && (code == 'Digit5')) {
-		input.textContent += '%';
 		decimalAdded = true;
 	}
 
