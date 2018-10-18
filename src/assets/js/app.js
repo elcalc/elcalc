@@ -156,6 +156,11 @@ document.addEventListener('keydown', event => {
 		decimalAdded = false;
 	}
 
+	if (inputVal != '' && (code == 'Backquote')) {
+		input.textContent = 'pow(' + input.textContent + ',2)';
+		decimalAdded = false;
+	}
+
 	if (event.shiftKey == false && (code == 'NumpadEnter' || code == 'Enter')) {
 		const equation = inputVal.replace(/x/g, '*').replace(/÷/g, '/');
 		input.textContent = math.eval(equation);
