@@ -141,8 +141,7 @@ document.addEventListener('keydown', event => {
 		decimalAdded = true;
 	}
 
-	if (inputVal != '' && operators.indexOf(lastChar) == -1 &&
-		((code == 'KeyX' || code == 'NumpadMultiply')) || (code == 'Digit8' && event.shiftKey)) {
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 && ((code == 'KeyX' || code == 'NumpadMultiply')) || (code == 'Digit8' && event.shiftKey)) {
 		input.textContent += '*';
 		decimalAdded = true;
 	}
@@ -157,12 +156,12 @@ document.addEventListener('keydown', event => {
 		decimalAdded = false;
 	}
 
-	if(inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Digit5' && event.shiftKey)) {
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Digit5' && event.shiftKey)) {
 		input.textContent += '%';
 		decimalAdded = true;
 	}
 
-	if(inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Digit1' && event.shiftKey)) {
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Digit1' && event.shiftKey)) {
 		input.textContent += '!';
 		decimalAdded = true;
 	}
