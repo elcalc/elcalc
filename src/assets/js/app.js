@@ -10,9 +10,9 @@ let decimalAdded = true;
 /* Buttons */
 
 for (let i = 0; i < keys.length; i++) {
-	keys[i].addEventListener('click', function (e) {
-		const inputVal = input.textContent;
-		const btnVal = this.textContent;
+	keys[i].addEventListener('click', async function (e) {
+		const inputVal = await input.textContent;
+		const btnVal = await this.textContent;
 
 		if (btnVal === 'C') {
 			input.textContent = '';
@@ -22,6 +22,9 @@ for (let i = 0; i < keys.length; i++) {
 			input.textContent = '';
 			decimalAdded = true;
 		} else if (btnVal === 'ʸ√x' && input.textContent === '') {
+			input.textContent = '';
+			decimalAdded = true;
+		} else if (btnVal === '√x' && input.textContent === '') {
 			input.textContent = '';
 			decimalAdded = true;
 		} else if (btnVal === 'xʸ' && input.textContent === '') {
@@ -53,20 +56,20 @@ for (let i = 0; i < keys.length; i++) {
 			decimalAdded = true;
 		} else if (btnVal === '=') {
 			let equation = inputVal;
-			const lastChar = equation[equation.length - 1];
+			const lastChar = await equation[equation.length - 1];
 
 			if (operators.indexOf(lastChar) > -1 || lastChar === '.') {
-				equation = equation.replace(/.$/, '');
+				equation = await equation.replace(/.$/, '');
 			}
 
 			if (equation) {
 				logger.log(`Evaluated equation ${equation}`);
-				input.textContent = math.eval(equation);
+				input.textContent = await math.eval(equation);
 			}
 
 			decimalAdded = false;
 		} else if (operators.indexOf(btnVal) > -1) {
-			const lastChar = inputVal[inputVal.length - 1];
+			const lastChar = await inputVal[inputVal.length - 1];
 
 			if (inputVal !== '' && operators.indexOf(lastChar) === -1) {
 				input.textContent += btnVal;
@@ -75,7 +78,7 @@ for (let i = 0; i < keys.length; i++) {
 			}
 
 			if (operators.indexOf(lastChar) > -1 && inputVal.length > 1) {
-				input.textContent = inputVal.replace(/.$/, btnVal);
+				input.textContent = await inputVal.replace(/.$/, btnVal);
 			}
 
 			decimalAdded = true;
@@ -123,10 +126,10 @@ for (let i = 0; i < keys.length; i++) {
 /* eslint eqeqeq:0 */
 /* eslint complexity:0 */
 
-document.addEventListener('keydown', event => {
+document.addEventListener('keydown', async event => {
 	const {code} = event;
-	const inputVal = input.textContent;
-	const lastChar = inputVal[inputVal.length - 1];
+	const inputVal = await input.textContent;
+	const lastChar = await inputVal[inputVal.length - 1];
 	if (event.shiftKey == false && (code.startsWith('Numpad') || code.startsWith('Digit')) && '0123456789'.includes(code.slice(-1))) {
 		input.textContent += code.slice(-1);
 	}
@@ -167,8 +170,8 @@ document.addEventListener('keydown', event => {
 	}
 
 	if (event.shiftKey == false && (code == 'NumpadEnter' || code == 'Enter')) {
-		const equation = inputVal.replace(/x/g, '*').replace(/÷/g, '/');
-		input.textContent = math.eval(equation);
+		const equation = await inputVal.replace(/x/g, '*').replace(/÷/g, '/');
+		input.textContent = await math.eval(equation);
 		decimalAdded = false;
 		logger.log(`Evaluated equation ${equation}`);
 	}

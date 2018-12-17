@@ -10,8 +10,8 @@ process.on('uncaughtException', err => {
 	logger.error('Uncaught error:\n', err);
 });
 
-app.on('ready', () => {
-	let win = new BrowserWindow({
+app.on('ready', async () => {
+	let win = await new BrowserWindow({
 		width: 330,
 		height: 440,
 		maximizable: false,
@@ -22,18 +22,18 @@ app.on('ready', () => {
 		show: false
 	});
 
-	win.setMenu(null);
+	await win.setMenu(null);
 
-	win.loadURL(`file://${__dirname}/index.html`);
+	await win.loadURL(`file://${__dirname}/index.html`);
 
-	win.once('ready-to-show', () => {
+	win.once('ready-to-show', async () => {
+		await win.show();
 		logger.log('App started');
-		win.show();
 	});
 
-	win.on('closed', () => {
-		logger.log('App closed');
+	win.on('closed', async () => {
 		win = null;
-		app.quit();
+		await app.quit();
+		logger.log('App closed');
 	});
 });

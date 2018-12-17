@@ -1,6 +1,6 @@
 {
   "name": "elcalc",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "Simple, Cross-Platform calculator built with Electron",
   "license": "MIT",
   "main": "src/main.js",
@@ -17,12 +17,12 @@
   },
   "dependencies": {
     "electron-timber": "^0.5.1",
-    "mathjs": "^5.2.2"
+    "mathjs": "^5.4.0"
   },
   "devDependencies": {
     "ava": "*",
-    "electron": "3.0.6",
-    "electron-builder": "20.29.0",
+    "electron": "3.0.13",
+    "electron-builder": "20.38.3",
     "electron-reloader": "^0.2.0",
     "spectron": "*",
     "stylelint": "*",
