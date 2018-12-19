@@ -62,7 +62,6 @@
 	margin: 0 7px 11px 0;
 	color: #212121;
 	text-align: center;
-	-webkit-user-select: none;
 	-webkit-app-region: no-drag;
 	user-select: none;
 	transition: all 0.2s ease;

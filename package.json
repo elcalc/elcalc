@@ -22,11 +22,11 @@
   "devDependencies": {
     "ava": "*",
     "electron": "3.0.13",
-    "electron-builder": "20.38.3",
+    "electron-builder": "20.38.4",
     "electron-reloader": "^0.2.0",
-    "spectron": "*",
-    "stylelint": "*",
-    "stylelint-config-xo": "*",
+    "spectron": "^5.0.0",
+    "stylelint": "^9.9.0",
+    "stylelint-config-recommended": "^2.1.0",
     "xo": "*"
   },
   "xo": {
@@ -40,14 +40,7 @@
     ]
   },
   "stylelint": {
-    "extends": "stylelint-config-xo",
-    "rules": {
-      "property-no-vendor-prefix": null,
-      "property-blacklist": null,
-      "no-duplicate-selectors": null,
-      "declaration-property-value-blacklist": null,
-      "font-weight-notation": null
-    }
+    "extends": "stylelint-config-recommended"
   },
   "build": {
     "files": [
