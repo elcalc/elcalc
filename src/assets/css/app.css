@@ -18,7 +18,7 @@
 	width: 325px;
 	height: auto;
 	padding: 20px;
-	padding-top: 45px;
+	padding-top: 30px;
 	background: #9ba6a7;
 	-webkit-app-region: drag;
 }
@@ -32,7 +32,7 @@
 }
 
 .top .screen {
-	width: 212px;
+	width: 70%;
 	float: right;
 	padding: 0 20px;
 	background: rgba(0, 0, 0, 0.2);
@@ -50,10 +50,18 @@
 	overflow: hidden;
 }
 
+.keys {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 5px
+}
+
+.clear {
+	float: left;
+}
+
 .keys span,
 .top span.clear {
-	float: left;
-	position: relative;
 	top: 0;
 	cursor: pointer;
 	width: 66px;
