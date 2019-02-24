@@ -1,13 +1,11 @@
-const keys = document.querySelectorAll('#calculator span');
 const math = require('mathjs');
 const logger = require('electron-timber');
 
+const keys = document.querySelectorAll('#calculator span');
 const operators = ['+', '-', '*', '/'];
 const input = document.querySelector('.screen');
 
 let decimalAdded = true;
-
-/* Buttons */
 
 for (let i = 0; i < keys.length; i++) {
 	keys[i].addEventListener('click', async function (e) {
