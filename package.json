@@ -17,20 +17,19 @@
   },
   "dependencies": {
     "electron-timber": "^0.5.1",
-    "mathjs": "^5.4.0"
+    "mathjs": "^5.5.0"
   },
   "devDependencies": {
     "ava": "*",
-    "electron": "3.0.13",
-    "electron-builder": "20.38.4",
+    "electron": "4.0.5",
+    "electron-builder": "20.38.5",
     "electron-reloader": "^0.2.0",
     "spectron": "^5.0.0",
-    "stylelint": "^9.9.0",
-    "stylelint-config-recommended": "^2.1.0",
+    "stylelint": "^9.10.1",
+    "stylelint-config-xo": "^0.13.0",
     "xo": "*"
   },
   "xo": {
-    "esnext": true,
     "rules": {
       "no-mixed-operators": 0
     },
@@ -40,7 +39,11 @@
     ]
   },
   "stylelint": {
-    "extends": "stylelint-config-recommended"
+    "extends": "stylelint-config-xo",
+    "rules": {
+      "property-blacklist": null,
+      "declaration-property-value-blacklist": null
+    }
   },
   "build": {
     "files": [
