@@ -17,12 +17,12 @@
   },
   "dependencies": {
     "electron-timber": "^0.5.1",
-    "mathjs": "^5.5.0"
+    "mathjs": "^5.6.0"
   },
   "devDependencies": {
     "ava": "*",
-    "electron": "4.0.5",
-    "electron-builder": "20.38.5",
+    "electron": "4.0.8",
+    "electron-builder": "20.39.0",
     "electron-reloader": "^0.2.0",
     "spectron": "^5.0.0",
     "stylelint": "^9.10.1",
