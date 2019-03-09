@@ -16,31 +16,7 @@ for (let i = 0; i < keys.length; i++) {
 			input.textContent = '';
 			decimalAdded = true;
 			logger.log('Cleared calculator output');
-		} else if (btnVal === '√' && input.textContent === '') {
-			input.textContent = '';
-			decimalAdded = true;
-		} else if (btnVal === 'ʸ√x' && input.textContent === '') {
-			input.textContent = '';
-			decimalAdded = true;
-		} else if (btnVal === '√x' && input.textContent === '') {
-			input.textContent = '';
-			decimalAdded = true;
-		} else if (btnVal === 'xʸ' && input.textContent === '') {
-			input.textContent = '';
-			decimalAdded = true;
-		} else if (btnVal === '%' && input.textContent === '') {
-			input.textContent = '';
-			decimalAdded = true;
-		} else if (btnVal === 'x²' && input.textContent === '') {
-			input.textContent = '';
-			decimalAdded = true;
-		} else if (btnVal === '|x|' && input.textContent === '') {
-			input.textContent = '';
-			decimalAdded = true;
-		} else if (btnVal === 'x!' && input.textContent === '') {
-			input.textContent = '';
-			decimalAdded = true;
-		} else if (btnVal === 'log𝑏(x)' && input.textContent === '') {
+		} else if (['√', 'ʸ√x', '√x', 'xʸ', '%', 'x²', '|x|', 'x!', 'log𝑏(x)'].indexOf(btnVal) > -1 && input.textContent === '') {
 			input.textContent = '';
 			decimalAdded = true;
 		} else if (btnVal !== '' && input.textContent.startsWith('pow(') && !input.textContent.endsWith(')')) {
@@ -53,7 +29,7 @@ for (let i = 0; i < keys.length; i++) {
 			input.textContent += btnVal + ')';
 			decimalAdded = true;
 		} else if (btnVal === '=') {
-			let equation = inputVal;
+			let equation = math.round(inputVal, 13);
 			const lastChar = await equation[equation.length - 1];
 
 			if (operators.indexOf(lastChar) > -1 || lastChar === '.') {
@@ -168,7 +144,7 @@ document.addEventListener('keydown', async event => {
 	}
 
 	if (event.shiftKey == false && (code == 'NumpadEnter' || code == 'Enter')) {
-		const equation = await inputVal.replace(/x/g, '*').replace(/÷/g, '/');
+		const equation = inputVal;
 		input.textContent = await math.eval(equation);
 		decimalAdded = false;
 		logger.log(`Evaluated equation ${equation}`);
