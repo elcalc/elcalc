@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "electron-timber": "^0.5.1",
-    "mathjs": "^5.6.0"
+    "mathjs": "^5.7.0"
   },
   "devDependencies": {
     "ava": "*",
