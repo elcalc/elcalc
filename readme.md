@@ -10,32 +10,28 @@ Elcalc is a cross-platform calculator, built with [Electron](https://electronjs.
 
 Check out [**the latest release**](https://github.com/elcalc/elcalc/releases/latest).
 
-[![Download elcalc](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/elcalc-electron/files/latest/download)
-
 ---
 
 ## Dev
-
-> I recommend using yarn instead of npm.
 
 <img src="https://imgur.com/ORQ3ZoX.png" alt="Screenshot" align="right" width="350"></a>
 
 ``` bash
 # Install dependencies
 
- $ yarn install
+ $ npm install
 
 # Run the app
 
- $ yarn start
+ $ npm start
  
 # Run lint & tests
 
- $ yarn test
+ $ npm test
  
 # Build 
 
- $ yarn dist
+ $ npm run dist
 ```
 <a href="https://www.patreon.com/akepinski">
 	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">

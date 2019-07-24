@@ -1,5 +1,6 @@
-const math = require('mathjs');
-const logger = require('electron-timber');
+import './stylesheets/main.css';
+
+import {evaluate, round} from 'mathjs';
 
 const keys = document.querySelectorAll('#calculator span');
 const operators = ['+', '-', '*', '/'];
@@ -15,7 +16,6 @@ for (let i = 0; i < keys.length; i++) {
 		if (btnVal === 'C') {
 			input.textContent = '';
 			decimalAdded = true;
-			logger.log('Cleared calculator output');
 		} else if (btnVal === '√' && input.textContent === '') {
 			input.textContent = '';
 			decimalAdded = true;
@@ -50,7 +50,7 @@ for (let i = 0; i < keys.length; i++) {
 			input.textContent += btnVal + ')';
 			decimalAdded = true;
 		} else if (btnVal === '=') {
-			let equation = inputVal.replace(/π/g, 'pi');
+			let equation = inputVal;
 			const lastChar = equation[equation.length - 1];
 
 			if (operators.indexOf(lastChar) > -1 || lastChar === '.') {
@@ -58,9 +58,8 @@ for (let i = 0; i < keys.length; i++) {
 			}
 
 			if (equation) {
-				logger.log(`Evaluated equation ${equation}`);
-				const result = await math.eval(equation);
-				input.textContent = math.round(result, 5);
+				const result = await evaluate(equation);
+				input.textContent = round(result, 5);
 			}
 
 			decimalAdded = false;
@@ -109,6 +108,7 @@ for (let i = 0; i < keys.length; i++) {
 		} else {
 			input.textContent += btnVal;
 		}
+
 		e.preventDefault();
 	});
 }
@@ -163,16 +163,14 @@ document.addEventListener('keydown', async event => {
 	}
 
 	if (event.shiftKey == false && (code == 'NumpadEnter' || code == 'Enter')) {
-		const equation = inputVal.replace(/π/g, 'pi');
-		const result = await math.eval(equation);
-		input.textContent = math.round(result, 5);
+		const equation = inputVal;
+		const result = await evaluate(equation);
+		input.textContent = round(result, 5);
 		decimalAdded = false;
-		logger.log(`Evaluated equation ${equation}`);
 	}
 
 	if (code == 'Backspace' || code == 'Delete') {
 		input.textContent = '';
 		decimalAdded = true;
-		logger.log('Cleared calculator output');
 	}
 });

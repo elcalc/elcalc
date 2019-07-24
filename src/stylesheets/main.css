@@ -1,6 +1,5 @@
 * {
 	margin: auto;
-	padding: auto;
 	box-sizing: border-box;
 	font: 600 14px Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
@@ -18,7 +17,6 @@
 	width: 325px;
 	height: auto;
 	padding: 20px;
-	padding-top: 45px;
 	background: #9ba6a7;
 	-webkit-app-region: drag;
 }

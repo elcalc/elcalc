@@ -1,0 +1,7 @@
+{
+    "extends": "stylelint-config-xo",
+    "rules": {
+      "property-blacklist": null,
+      "declaration-property-value-blacklist": null
+    }
+}
