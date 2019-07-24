@@ -46,7 +46,8 @@
     "dist": "npm test && webpack --config=build/webpack.app.config.js --env=production && electron-builder --linux --win"
   },
   "dependencies": {
-    "mathjs": "^6.0.3"
+    "mathjs": "^6.0.3",
+    "fs-jetpack": "^2.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
