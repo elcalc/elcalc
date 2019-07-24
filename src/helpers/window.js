@@ -82,6 +82,8 @@ export default (name, options) => {
 
 	win = new BrowserWindow(Object.assign({}, options, state));
 
+	win.setMenu(null);
+
 	win.on('close', saveState);
 
 	return win;

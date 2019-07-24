@@ -22,8 +22,6 @@ app.on('ready', () => {
 		}
 	});
 
-	mainWindow.setMenu(null);
-
 	mainWindow.loadURL(
 		url.format({
 			pathname: path.join(__dirname, 'app.html'),
