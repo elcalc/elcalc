@@ -6,16 +6,7 @@
 import path from 'path';
 import url from 'url';
 import {app} from 'electron';
-import env from 'env';
 import createWindow from './helpers/window';
-
-// Save userData in separate folders for each environment.
-// Thanks to this you can use production and development versions of the app
-// on same machine like those are two separate apps.
-if (env.name !== 'production') {
-	const userDataPath = app.getPath('userData');
-	app.setPath('userData', `${userDataPath} (${env.name})`);
-}
 
 app.on('ready', () => {
 	const mainWindow = createWindow('main', {

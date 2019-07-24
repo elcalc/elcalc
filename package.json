@@ -58,7 +58,6 @@
     "css-loader": "^3.1.0",
     "electron": "5.0.8",
     "electron-builder": "^21.1.1",
-    "env": "0.0.2",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "fs-jetpack": "^2.2.2",
     "source-map-support": "^0.5.12",
