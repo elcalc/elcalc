@@ -47,7 +47,6 @@
   },
   "dependencies": {
     "electron-context-menu": "^0.13.0",
-    "electron-util": "^0.12.1",
     "fs-jetpack": "^2.2.2",
     "mathjs": "^6.0.3"
   },
