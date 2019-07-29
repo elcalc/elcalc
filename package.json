@@ -2,7 +2,7 @@
   "name": "elcalc",
   "productName": "elcalc",
   "description": "Cross-Platform calculator built with Electron",
-  "version": "6.0.1",
+  "version": "6.0.2",
   "private": true,
   "author": {
     "name": "Antoni Kepinski",
@@ -46,8 +46,10 @@
     "dist": "npm test && webpack --config=build/webpack.app.config.js --env=production && electron-builder --linux --win"
   },
   "dependencies": {
-    "mathjs": "^6.0.3",
-    "fs-jetpack": "^2.2.2"
+    "electron-context-menu": "^0.13.0",
+    "electron-util": "^0.12.1",
+    "fs-jetpack": "^2.2.2",
+    "mathjs": "^6.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -58,14 +60,14 @@
     "clean-css-loader": "^2.0.0",
     "css-loader": "^3.1.0",
     "electron": "5.0.8",
-    "electron-builder": "^21.1.1",
+    "electron-builder": "^21.1.5",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "source-map-support": "^0.5.12",
     "spectron": "^7.0.0",
     "style-loader": "^0.23.1",
     "stylelint": "^10.1.0",
     "stylelint-config-xo": "^0.15.0",
-    "webpack": "^4.37.0",
+    "webpack": "^4.38.0",
     "webpack-cli": "^3.3.6",
     "webpack-merge": "^4.2.1",
     "webpack-node-externals": "^1.7.2",
