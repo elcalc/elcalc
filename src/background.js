@@ -5,10 +5,16 @@
 
 import path from 'path';
 import url from 'url';
-import {app} from 'electron';
+import {app, Menu} from 'electron';
+import contextMenu from 'electron-context-menu';
 import createWindow from './helpers/window';
 
+// Support copy & paste
+contextMenu();
+
 app.on('ready', () => {
+	Menu.setApplicationMenu(null);
+
 	const mainWindow = createWindow('main', {
 		width: 330,
 		height: 440,
