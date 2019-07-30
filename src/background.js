@@ -5,9 +5,8 @@
 
 import path from 'path';
 import url from 'url';
-import {app, Menu} from 'electron';
+import {app, BrowserWindow, Menu} from 'electron';
 import contextMenu from 'electron-context-menu';
-import createWindow from './helpers/window';
 
 // Support copy & paste
 contextMenu();
@@ -15,9 +14,9 @@ contextMenu();
 app.on('ready', () => {
 	Menu.setApplicationMenu(null);
 
-	const mainWindow = createWindow('main', {
+	const mainWindow = new BrowserWindow({
 		width: 330,
-		height: 440,
+		height: 500,
 		maximizable: false,
 		resizable: false,
 		backgroundColor: '#9BA6A7',
