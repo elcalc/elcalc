@@ -2,7 +2,7 @@ matrix:
   fast_finish: true
   include:
     - language: node_js
-      python: 
+      node_js: 
         - 'node'
       before_install:
         - "export DISPLAY=:99.0"
