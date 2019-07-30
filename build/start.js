@@ -15,6 +15,7 @@ const watching = compiler.watch({}, (err, stats) => {
 			.spawn(electron, ['.'], {stdio: 'inherit'})
 			.on('close', () => {
 				watching.close();
+				process.exit(0);
 			});
 	}
 });
