@@ -13,6 +13,7 @@ matrix:
       rust:
         - stable
       before_install:
+        - cd crate
         - rustup component add clippy
       script:
         - cargo clippy
