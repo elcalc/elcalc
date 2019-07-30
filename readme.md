@@ -62,22 +62,22 @@ Check out [**the latest release**](https://github.com/elcalc/elcalc/releases/lat
 
 ```bash
 ├── build                 			# Contains configuration files for Webpack etc.
-│   └── start.js            		# Configuration for `npm start` command
-│   └── webpack.app.config.js       # Webpack app config (entry point, output)
-│   └── webpack.base.config.js      # Webpack base config (plugins, loaders)
+│   └── start.js            		        # Configuration for `npm start` command
+│   └── webpack.app.config.js                   # Webpack app config (entry point, output)
+│   └── webpack.base.config.js                  # Webpack base config (plugins, loaders)
 ├── crate                			# Contains Rust code, which will be compiled to WASM.
 │   ├── src                			
-│   │	└── lib.rs            		# Main Rust file
+│   │	└── lib.rs            		        # Main Rust file
 │   └── Cargo.lock     				# Cargo lock file
 │   └── Cargo.toml      			# Cargo configuration file
-├── resources                 		# Contains icons for different operating systems
+├── resources                 		        # Contains icons for different operating systems
 │   ├── icons                			
-│   │	└── 512x512.png             # Icon for other operating systems (like Linux)
+│   │	└── 512x512.png                         # Icon for other operating systems (like Linux)
 │   └── icon.icns       			# Icon for macOS
 │   └── icon.ico      				# Icon for Windows
 ├── src                				# Main application folder
 │   ├── stylesheets                			
-│   │	└── main.css             	# Styles
+│   │	└── main.css             	        # Styles
 │   └── app.html          			# Main HTML file
 │   └── app.js       				# Main JS file
 │   └── background.js     			# Electron configuration
