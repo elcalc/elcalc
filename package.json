@@ -2,7 +2,7 @@
   "name": "elcalc",
   "productName": "elcalc",
   "description": "Cross-Platform calculator built with Electron",
-  "version": "6.0.2",
+  "version": "6.1.0",
   "private": true,
   "author": {
     "name": "Antoni Kepinski",
@@ -43,29 +43,34 @@
     "postinstall": "electron-builder install-app-deps",
     "test": "xo && stylelint 'src/stylesheets/*.css'",
     "start": "node build/start.js",
-    "dist": "npm test && webpack --config=build/webpack.app.config.js --env=production && electron-builder --linux --win"
+    "dist": "webpack --config=build/webpack.app.config.js --env=production && electron-builder --linux --win"
   },
   "dependencies": {
-    "electron-context-menu": "^0.13.0",
-    "fs-jetpack": "^2.2.2",
-    "mathjs": "^6.0.3"
+    "electron-context-menu": "^0.13.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "@wasm-tool/wasm-pack-plugin": "^1.0.0",
     "ava": "^2.2.0",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "cache-loader": "^4.1.0",
     "clean-css-loader": "^2.0.0",
     "css-loader": "^3.1.0",
-    "electron": "5.0.8",
+    "del-cli": "^2.0.0",
+    "electron": "6.0.0",
     "electron-builder": "^21.1.5",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-webpack-exclude-assets-plugin": "0.0.7",
+    "html-webpack-plugin": "^3.2.0",
+    "script-ext-html-webpack-plugin": "^2.1.4",
     "source-map-support": "^0.5.12",
     "spectron": "^7.0.0",
     "style-loader": "^0.23.1",
     "stylelint": "^10.1.0",
     "stylelint-config-xo": "^0.15.0",
+    "terser-webpack-plugin": "^1.3.0",
     "webpack": "^4.38.0",
     "webpack-cli": "^3.3.6",
     "webpack-merge": "^4.2.1",
@@ -73,13 +78,20 @@
     "xo": "^0.24.0"
   },
   "xo": {
-    "rules": {
-      "no-mixed-operators": 0,
-      "import/no-unassigned-import": 0
-    },
+    "parser": "babel-eslint",
     "envs": [
       "node",
       "browser"
+    ],
+    "rules": {
+      "no-mixed-operators": 0,
+      "eqeqeq": 0,
+      "complexity": 0,
+      "import/no-unassigned-import": 0,
+      "unicorn/no-process-exit": 0
+    },
+    "ignores": [
+      "app/*.js"
     ]
   }
 }
