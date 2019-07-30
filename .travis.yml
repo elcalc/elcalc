@@ -1,12 +1,18 @@
-os:
-  - linux
+matrix:
+  fast_finish: true
+  include:
+    - language: node_js
+      python: 
+        - 'node'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+        - sleep 3 # give xvfb some time to start
 
-language: node_js
-
-node_js:
-  - 'node'
-
-before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
+    - language: rust
+      rust:
+        - stable
+      before_install:
+        - rustup component add clippy
+      script:
+        - cargo clippy
