@@ -6,7 +6,10 @@ Thumbs.db
 /dist
 /temp
 
-# ignore everything in 'app' folder what had been generated from 'src' folder
-/app/app.js
-/app/background.js
-/app/**/*.map
+# ignore 'app' folder
+/app
+
+# ignore everything in 'crate' folder what had been generated
+/crate/target
+/crate/pkg
+pkg
