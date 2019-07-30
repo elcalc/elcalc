@@ -1,0 +1,21 @@
+[package]
+name = "evaluate"
+description = "Math helper for Elcalc, written in Rust and compiled to WASM."
+version = "0.1.0"
+authors = ["Antoni Kepinski <a@kepinski.me>"]
+license = "MIT"
+repository = "https://github.com/elcalc/evaluate"
+edition = "2018"
+publish = false
+
+[dependencies]
+wasm-bindgen = "0.2"
+meval = "0.2"
+round = "0.1"
+
+[lib]
+crate-type =["cdylib"]
+
+[profile.release]
+lto = true
+opt-level = 's'
