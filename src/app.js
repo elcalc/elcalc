@@ -1,15 +1,15 @@
+'use strict';
+
 import './stylesheets/main.css';
 
-import {evaluate, round} from 'mathjs';
-
 const keys = document.querySelectorAll('#calculator span');
-const operators = ['+', '-', '*', '/'];
+const operators = ['+', '-', '*', '/', '^'];
 const input = document.querySelector('.screen');
 
 let decimalAdded = true;
 
-for (let i = 0; i < keys.length; i++) {
-	keys[i].addEventListener('click', async function (e) {
+for (const key of keys) {
+	key.addEventListener('click', async function (e) {
 		const inputVal = input.value;
 		const btnVal = this.textContent;
 
@@ -18,29 +18,19 @@ for (let i = 0; i < keys.length; i++) {
 			decimalAdded = true;
 		} else if (
 			(btnVal === '√' ||
-			btnVal === 'ʸ√x' ||
 			btnVal === '√x' ||
 			btnVal === 'xʸ' ||
 			btnVal === '%' ||
 			btnVal === 'x²' ||
-			btnVal === 'x!' ||
-			btnVal === 'log𝑏(x)') &&
+			btnVal === 'abs' ||
+			btnVal === 'exp' ||
+			btnVal === 'log' ||
+			btnVal === 'sin' ||
+			btnVal === 'cos' ||
+			btnVal === 'tan') &&
 			input.value === ''
 		) {
 			input.value = '';
-			decimalAdded = true;
-		} else if (
-			btnVal !== '' && (
-				input.value.startsWith('pow(') ||
-				input.value.startsWith('nthRoot(') ||
-				input.value.startsWith('log(')
-			) &&
-			!input.value.endsWith(')')
-		) {
-			input.value += btnVal + ')';
-			decimalAdded = true;
-		} else if (btnVal === 'π' && input.value === '') {
-			input.value = 'pi';
 			decimalAdded = true;
 		} else if (btnVal === '=') {
 			let equation = inputVal;
@@ -51,8 +41,10 @@ for (let i = 0; i < keys.length; i++) {
 			}
 
 			if (equation) {
-				const result = await evaluate(equation);
-				input.value = round(result, 5);
+				await import('../crate/pkg').then(async module => {
+					const result = await module.evaluate(equation.replace(/π/g, 'pi'));
+					input.value = result;
+				});
 			}
 
 			decimalAdded = false;
@@ -81,22 +73,31 @@ for (let i = 0; i < keys.length; i++) {
 				decimalAdded = false;
 			}
 		} else if (btnVal === 'x²') {
-			input.value = 'pow(' + input.value + ',2)';
+			input.value += '^2';
 			decimalAdded = false;
 		} else if (btnVal === 'xʸ') {
-			input.value = 'pow(' + input.value + ',';
+			input.value += '^';
 			decimalAdded = false;
 		} else if (btnVal === '√x' && input.value !== '') {
 			input.value = `sqrt(${input.value})`;
 			decimalAdded = false;
-		} else if (btnVal === 'ʸ√x' && input.value !== '') {
-			input.value = 'nthRoot(' + input.value + ',';
+		} else if (btnVal === 'abs' && input.value !== '') {
+			input.value = `abs(${input.value})`;
 			decimalAdded = false;
-		} else if (btnVal === 'log𝑏(x)' && input.value !== '') {
-			input.value = 'log(' + input.value + ',';
+		} else if (btnVal === 'log' && input.value !== '') {
+			input.value = `ln(${input.value})`;
 			decimalAdded = false;
-		} else if (btnVal === 'x!' && input.value !== '') {
-			input.value += '!';
+		} else if (btnVal === 'exp' && input.value !== '') {
+			input.value = `exp(${input.value})`;
+			decimalAdded = false;
+		} else if (btnVal === 'sin' && input.value !== '') {
+			input.value = `sin(${input.value})`;
+			decimalAdded = false;
+		} else if (btnVal === 'cos' && input.value !== '') {
+			input.value = `cos(${input.value})`;
+			decimalAdded = false;
+		} else if (btnVal === 'tan' && input.value !== '') {
+			input.value = `tan(${input.value})`;
 			decimalAdded = false;
 		} else {
 			input.value += btnVal;
@@ -108,68 +109,65 @@ for (let i = 0; i < keys.length; i++) {
 
 /* Keyboard support */
 
-// In this particular case, we need to disable some eslint rules, for keyboard support to work correctly.
+document.addEventListener('keydown', async event => {
+	const {code} = event;
+	const inputVal = input.value;
+	const lastChar = inputVal[inputVal.length - 1];
 
-/* eslint eqeqeq:0 */
-/* eslint complexity:0 */
+	if (event.shiftKey == false && (code.startsWith('Numpad') || code.startsWith('Digit')) && '0123456789'.includes(code.slice(-1))) {
+		input.value += code.slice(-1);
+	}
 
-if (input.hasFocus()) {
-	console.log();
-} else {
-	document.addEventListener('keydown', async event => {
-		const {code} = event;
-		const inputVal = input.value;
-		const lastChar = inputVal[inputVal.length - 1];
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Equal' || code == 'NumpadAdd')) {
+		input.value += '+';
+		decimalAdded = true;
+	}
 
-		if (event.shiftKey == false && (code.startsWith('Numpad') || code.startsWith('Digit')) && '0123456789'.includes(code.slice(-1))) {
-			input.value += code.slice(-1);
-		}
+	if (operators.indexOf(lastChar) == -1 && (code == 'Minus' || code == 'NumpadSubtract')) {
+		input.value += '-';
+		decimalAdded = true;
+	}
 
-		if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Equal' || code == 'NumpadAdd')) {
-			input.value += '+';
-			decimalAdded = true;
-		}
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 && ((code == 'KeyX' || code == 'NumpadMultiply')) || (code == 'Digit8' && event.shiftKey)) {
+		input.value += '*';
+		decimalAdded = true;
+	}
 
-		if (operators.indexOf(lastChar) == -1 && (code == 'Minus' || code == 'NumpadSubtract')) {
-			input.value += '-';
-			decimalAdded = true;
-		}
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Slash' || code == 'IntlRo' || code == 'NumpadDivide')) {
+		input.value += '/';
+		decimalAdded = true;
+	}
 
-		if (inputVal != '' && operators.indexOf(lastChar) == -1 && ((code == 'KeyX' || code == 'NumpadMultiply')) || (code == 'Digit8' && event.shiftKey)) {
-			input.value += '*';
-			decimalAdded = true;
-		}
+	if ((code == 'Period' || code == 'NumpadDecimal') && decimalAdded == true) {
+		input.value += '.';
+		decimalAdded = false;
+	}
 
-		if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Slash' || code == 'IntlRo' || code == 'NumpadDivide')) {
-			input.value += '/';
-			decimalAdded = true;
-		}
+	if (code == 'KeyE') {
+		input.value += 'e';
+		decimalAdded = false;
+	}
 
-		if ((code == 'Period' || code == 'NumpadDecimal') && decimalAdded == true) {
-			input.value += '.';
-			decimalAdded = false;
-		}
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Digit5' && event.shiftKey)) {
+		input.value += '%';
+		decimalAdded = true;
+	}
 
-		if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Digit5' && event.shiftKey)) {
-			input.value += '%';
-			decimalAdded = true;
-		}
+	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Digit6' && event.shiftKey)) {
+		input.value += '^';
+		decimalAdded = true;
+	}
 
-		if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Digit1' && event.shiftKey)) {
-			input.value += '!';
-			decimalAdded = true;
-		}
-
-		if (event.shiftKey == false && (code == 'NumpadEnter' || code == 'Enter')) {
+	if (event.shiftKey == false && (code == 'NumpadEnter' || code == 'Enter')) {
+		await import('../crate/pkg').then(async module => {
 			const equation = inputVal;
-			const result = await evaluate(equation);
-			input.value = round(result, 5);
-			decimalAdded = false;
-		}
+			const result = await module.evaluate(equation.replace(/π/g, 'pi'));
+			input.value = result;
+		});
+	}
 
-		if (code == 'Backspace' || code == 'Delete') {
-			input.value = '';
-			decimalAdded = true;
-		}
-	});
-}
+	if (code == 'Backspace' || code == 'Delete') {
+		input.value = '';
+		decimalAdded = true;
+	}
+});
