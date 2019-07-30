@@ -1,5 +1,10 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const TerserPlugin = require('terser-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackExcludeAssetsPlugin = require('html-webpack-exclude-assets-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const WasmPackPlugin = require('@wasm-tool/wasm-pack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const translateEnvToMode = env => {
@@ -19,10 +24,28 @@ module.exports = env => {
 			__filename: false
 		},
 		externals: [nodeExternals()],
-		resolve: {
-			alias: {
-				env: path.resolve(__dirname, `../config/env_${env}.json`)
-			}
+		optimization: {
+			minimize: translateEnvToMode(env) === 'production',
+			minimizer: [
+				new TerserPlugin({
+					terserOptions: {
+						compress: {
+							warnings: false,
+							comparisons: false,
+							inline: 2
+						},
+						output: {
+							ecma: 8,
+							comments: false,
+							/* eslint-disable-next-line camelcase */
+							ascii_only: true
+						}
+					},
+					parallel: true,
+					sourceMap: false,
+					cache: true
+				})
+			]
 		},
 		devtool: 'source-map',
 		module: {
@@ -44,6 +67,32 @@ module.exports = env => {
 			]
 		},
 		plugins: [
+			new HtmlWebpackPlugin({
+				template: path.resolve(__dirname, '../src/app.html'),
+				filename: 'app.html',
+				minify: {
+					removeComments: true,
+					collapseWhitespace: true,
+					removeRedundantAttributes: true,
+					useShortDoctype: true,
+					removeEmptyAttributes: true,
+					removeStyleLinkTypeAttributes: true,
+					removeScriptTypeAttributes: true,
+					keepClosingSlash: true,
+					minifyJS: true,
+					minifyCSS: true,
+					minifyURLs: true
+				},
+				excludeAssets: [/background.js/]
+			}),
+			new HtmlWebpackExcludeAssetsPlugin(),
+			new ScriptExtHtmlWebpackPlugin({
+				defaultAttribute: 'async',
+				prefetch: ['app.js']
+			}),
+			new WasmPackPlugin({
+				crateDirectory: path.resolve(__dirname, '../crate')
+			}),
 			new FriendlyErrorsWebpackPlugin({clearConsole: env === 'development'})
 		]
 	};
