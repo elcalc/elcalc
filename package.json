@@ -15,7 +15,6 @@
     "appId": "me.kepinski.elcalc",
     "files": [
       "app/**/*",
-      "node_modules/**/*",
       "package.json"
     ],
     "directories": {
@@ -64,8 +63,8 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-exclude-assets-plugin": "0.0.7",
     "html-webpack-plugin": "^3.2.0",
+    "optimize-wasm-webpack-plugin": "^1.0.12",
     "script-ext-html-webpack-plugin": "^2.1.4",
-    "source-map-support": "^0.5.12",
     "spectron": "^7.0.0",
     "style-loader": "^0.23.1",
     "stylelint": "^10.1.0",
