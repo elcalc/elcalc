@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackExcludeAssetsPlugin = require('html-webpack-exclude-assets-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const WasmPackPlugin = require('@wasm-tool/wasm-pack-plugin');
+const OptimizeWasmPlugin = require('optimize-wasm-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const translateEnvToMode = env => {
@@ -44,10 +45,11 @@ module.exports = env => {
 					parallel: true,
 					sourceMap: false,
 					cache: true
-				})
-			]
+				}),
+				new OptimizeWasmPlugin()
+			],
+			mangleWasmImports: true
 		},
-		devtool: 'source-map',
 		module: {
 			rules: [
 				{
