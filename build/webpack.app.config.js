@@ -8,6 +8,9 @@ module.exports = env => {
 			background: './src/background.js',
 			app: './src/app.js'
 		},
+		devServer: {
+			compress: true
+		},
 		output: {
 			filename: '[name].js',
 			path: path.resolve(__dirname, '../app')
