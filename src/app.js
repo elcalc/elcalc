@@ -1,10 +1,11 @@
 'use strict';
 
+import '@akepinski/v8-compile-cache';
 import './stylesheets/main.css';
 
-const keys = document.querySelectorAll('#calculator span');
+const keys = document.getElementsByTagName('span');
+const input = document.getElementById('screen');
 const operators = ['+', '-', '*', '/', '^'];
-const input = document.querySelector('.screen');
 
 let decimalAdded = true;
 
