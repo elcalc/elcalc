@@ -33,7 +33,7 @@ Check out [**the latest release**](https://github.com/elcalc/elcalc/releases/lat
 - [Rust](https://www.rust-lang.org/tools/install)
 - [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/)
 
-<img src="https://imgur.com/ORQ3ZoX.png" alt="Screenshot" align="right" width="350"></a>
+<img src="https://imgur.com/x3TrxgJ.png" alt="Screenshot" align="right" width="350"></a>
 
 ### Usage
 
