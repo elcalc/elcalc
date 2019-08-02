@@ -40,7 +40,7 @@
   },
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
-    "test": "xo && stylelint 'src/stylesheets/*.css'",
+    "test": "xo && stylelint 'src/stylesheets/*.css' && ava",
     "start": "node build/start.js",
     "dist": "del app dist && webpack --config=build/webpack.app.config.js --env=production && electron-builder --linux --win"
   },
@@ -66,7 +66,7 @@
     "html-webpack-plugin": "^3.2.0",
     "optimize-wasm-webpack-plugin": "^1.0.12",
     "script-ext-html-webpack-plugin": "^2.1.4",
-    "spectron": "^7.0.0",
+    "spectron": "^5.0.0",
     "style-loader": "^0.23.1",
     "stylelint": "^10.1.0",
     "stylelint-config-xo": "^0.15.0",
