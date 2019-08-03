@@ -27,13 +27,13 @@ Check out [**the latest release**](https://github.com/elcalc/elcalc/releases/lat
 
 ## Dev
 
+<img src="https://imgur.com/x3TrxgJ.png" alt="Screenshot" align="right" width="300"></a>
+
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
 - [Rust](https://www.rust-lang.org/tools/install)
 - [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/)
-
-<img src="https://imgur.com/x3TrxgJ.png" alt="Screenshot" align="right" width="350"></a>
 
 ### Usage
 
