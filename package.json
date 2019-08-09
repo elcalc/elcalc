@@ -2,7 +2,7 @@
   "name": "elcalc",
   "productName": "elcalc",
   "description": "Cross-Platform calculator built with Electron",
-  "version": "6.1.1",
+  "version": "6.1.2",
   "private": true,
   "author": {
     "name": "Antoni Kepinski",
