@@ -1,4 +1,4 @@
-import '@akepinski/v8-compile-cache';
+'use strict';
 
 import path from 'path';
 import url from 'url';
