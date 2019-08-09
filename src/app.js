@@ -1,6 +1,6 @@
 'use strict';
 
-import '@akepinski/v8-compile-cache';
+import 'v8-compile-cache';
 import './stylesheets/main.css';
 
 const keys = document.getElementsByTagName('span');
