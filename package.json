@@ -45,8 +45,8 @@
     "dist": "del app dist && webpack --config=build/webpack.app.config.js --env=production && electron-builder --linux --win"
   },
   "dependencies": {
-    "@akepinski/v8-compile-cache": "^2.0.3",
-    "electron-context-menu": "^0.13.0"
+    "v8-compile-cache": "^2.1.0",
+    "electron-context-menu": "^0.14.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -57,17 +57,17 @@
     "babel-loader": "^8.0.6",
     "cache-loader": "^4.1.0",
     "clean-css-loader": "^2.0.0",
-    "css-loader": "^3.1.0",
+    "css-loader": "^3.2.0",
     "del-cli": "^2.0.0",
-    "electron": "6.0.0",
+    "electron": "6.0.1",
     "electron-builder": "^21.2.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-exclude-assets-plugin": "0.0.7",
     "html-webpack-plugin": "^3.2.0",
     "optimize-wasm-webpack-plugin": "^1.0.12",
     "script-ext-html-webpack-plugin": "^2.1.4",
-    "spectron": "^5.0.0",
-    "style-loader": "^0.23.1",
+    "spectron": "^8.0.0",
+    "style-loader": "^1.0.0",
     "stylelint": "^10.1.0",
     "stylelint-config-xo": "^0.15.0",
     "terser-webpack-plugin": "^1.4.1",
