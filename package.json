@@ -40,7 +40,7 @@
   },
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
-    "test": "xo && stylelint 'src/stylesheets/*.css' && ava",
+    "test": "xo && stylelint 'src/stylesheets/*.css'",
     "start": "node build/start.js",
     "dist": "del app dist && webpack --config=build/webpack.app.config.js --env=production && electron-builder --linux --win"
   },
