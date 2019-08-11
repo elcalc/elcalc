@@ -4,10 +4,6 @@ matrix:
     - language: node_js
       node_js:
         - 'node'
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
-        - sleep 5 # give xvfb some time to start
 
     - language: rust
       rust:
