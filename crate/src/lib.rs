@@ -6,5 +6,5 @@ use round::{round};
 pub fn evaluate(expression: String) -> f64 {
     let result = meval::eval_str(expression).unwrap();
 
-    round(result, 5)
+    round(result, 3)
 }
