@@ -6,8 +6,9 @@
 <p align="center">Cross-platform calculator, built with <a href="https://electronjs.org/">Electron</a> :electron:<p>
 <p align="center">  
 	<a href="https://travis-ci.org/elcalc/elcalc"><img src="https://travis-ci.org/elcalc/elcalc.svg?branch=master" alt="Build Status"></a>
-	<a href="https://github.com/sindresorhus/xo"><img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg" alt="Code Style"></a>  
-	<a href='https://github.com/sindresorhus/awesome-nodejs'><img src='https://awesome.re/mentioned-badge.svg' alt='Mentioned in Awesome Calculators'></a>
+	<a href="https://github.com/sindresorhus/xo"><img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg" alt="Code Style"></a>
+  <a href="#"><img src="https://img.shields.io/github/downloads/elcalc/elcalc/total.svg" alt="Downloads"></a> 
+	<a href='https://github.com/xxczaki/awesome-calculators'><img src='https://awesome.re/mentioned-badge.svg' alt='Mentioned in Awesome Calculators'></a>
 </p>
 
 ---
