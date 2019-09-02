@@ -1,6 +1,6 @@
-use wasm_bindgen::prelude::*;
 use meval;
-use round::{round};
+use round::round;
+use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 pub fn evaluate(expression: String) -> f64 {
