@@ -37,7 +37,7 @@ for (const key of keys) {
 			let equation = inputVal;
 			const lastChar = equation[equation.length - 1];
 
-			if (operators.indexOf(lastChar) > -1 || lastChar === '.') {
+			if (operators.includes(lastChar) || lastChar === '.') {
 				equation = equation.replace(/.$/, '');
 			}
 
@@ -49,16 +49,16 @@ for (const key of keys) {
 			}
 
 			decimalAdded = false;
-		} else if (operators.indexOf(btnVal) > -1) {
+		} else if (operators.includes(btnVal)) {
 			const lastChar = inputVal[inputVal.length - 1];
 
-			if (inputVal !== '' && operators.indexOf(lastChar) === -1) {
+			if (inputVal !== '' && !operators.includes(lastChar)) {
 				input.value += btnVal;
 			} else if (inputVal === '' && btnVal === '-') {
 				input.value += btnVal;
 			}
 
-			if (operators.indexOf(lastChar) > -1 && inputVal.length > 1) {
+			if (operators.includes(lastChar) && inputVal.length > 1) {
 				input.value = inputVal.replace(/.$/, btnVal);
 			}
 
@@ -119,22 +119,22 @@ document.addEventListener('keydown', async event => {
 		input.value += code.slice(-1);
 	}
 
-	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Equal' || code == 'NumpadAdd')) {
+	if (inputVal != '' && !operators.includes(lastChar) && (code == 'Equal' || code == 'NumpadAdd')) {
 		input.value += '+';
 		decimalAdded = true;
 	}
 
-	if (operators.indexOf(lastChar) == -1 && (code == 'Minus' || code == 'NumpadSubtract')) {
+	if (!operators.includes(lastChar) && (code == 'Minus' || code == 'NumpadSubtract')) {
 		input.value += '-';
 		decimalAdded = true;
 	}
 
-	if (inputVal != '' && operators.indexOf(lastChar) == -1 && ((code == 'KeyX' || code == 'NumpadMultiply')) || (code == 'Digit8' && event.shiftKey)) {
+	if (inputVal != '' && !operators.includes(lastChar) && ((code == 'KeyX' || code == 'NumpadMultiply')) || (code == 'Digit8' && event.shiftKey)) {
 		input.value += '*';
 		decimalAdded = true;
 	}
 
-	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Slash' || code == 'IntlRo' || code == 'NumpadDivide')) {
+	if (inputVal != '' && !operators.includes(lastChar) && (code == 'Slash' || code == 'IntlRo' || code == 'NumpadDivide')) {
 		input.value += '/';
 		decimalAdded = true;
 	}
@@ -149,12 +149,12 @@ document.addEventListener('keydown', async event => {
 		decimalAdded = false;
 	}
 
-	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Digit5' && event.shiftKey)) {
+	if (inputVal != '' && !operators.includes(lastChar) && (code == 'Digit5' && event.shiftKey)) {
 		input.value += '%';
 		decimalAdded = true;
 	}
 
-	if (inputVal != '' && operators.indexOf(lastChar) == -1 && (code == 'Digit6' && event.shiftKey)) {
+	if (inputVal != '' && !operators.includes(lastChar) && (code == 'Digit6' && event.shiftKey)) {
 		input.value += '^';
 		decimalAdded = true;
 	}
