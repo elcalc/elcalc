@@ -1,99 +1,99 @@
 {
-  "name": "elcalc",
-  "productName": "elcalc",
-  "description": "Cross-Platform calculator built with Electron",
-  "version": "6.1.3",
-  "private": true,
-  "author": {
-    "name": "Antoni Kepinski",
-    "email": "a@kepinski.me",
-    "url": "https://kepinski.me"
-  },
-  "homepage": "https://github.com/elcalc/elcalc",
-  "main": "app/background.js",
-  "build": {
-    "appId": "me.kepinski.elcalc",
-    "files": [
-      "app/**/*",
-      "package.json"
-    ],
-    "directories": {
-      "buildResources": "resources"
+    "name": "elcalc",
+    "productName": "elcalc",
+    "description": "Cross-Platform calculator built with Electron",
+    "version": "6.2.0",
+    "private": true,
+    "author": {
+        "name": "Antoni Kepinski",
+        "email": "a@kepinski.me",
+        "url": "https://kepinski.me"
     },
-    "mac": {
-      "category": "public.app-category.utilities"
+    "homepage": "https://github.com/elcalc/elcalc",
+    "main": "app/background.js",
+    "build": {
+        "appId": "me.kepinski.elcalc",
+        "files": [
+            "app/**/*",
+            "package.json"
+        ],
+        "directories": {
+            "buildResources": "resources"
+        },
+        "mac": {
+            "category": "public.app-category.utilities"
+        },
+        "dmg": {
+            "iconSize": 150
+        },
+        "linux": {
+            "target": [
+                "AppImage",
+                "deb",
+                "rpm"
+            ],
+            "synopsis": "Cross-Platform Calculator",
+            "description": "Cross-Platform calculator built with Electron.",
+            "category": "Utility;Calculator"
+        },
+        "publish": null
     },
-    "dmg": {
-      "iconSize": 150
+    "scripts": {
+        "postinstall": "electron-builder install-app-deps",
+        "test": "xo && stylelint 'src/stylesheets/*.css' && ava",
+        "start": "node build/start.js",
+        "dist": "del app dist && webpack --config=build/webpack.app.config.js --env=production && electron-builder --linux --win"
     },
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb",
-        "rpm"
-      ],
-      "synopsis": "Cross-Platform Calculator",
-      "description": "Cross-Platform calculator built with Electron.",
-      "category": "Utility;Calculator"
+    "dependencies": {
+        "v8-compile-cache": "^2.1.0",
+        "electron-context-menu": "^0.16.0"
     },
-    "publish": null
-  },
-  "scripts": {
-    "postinstall": "electron-builder install-app-deps",
-    "test": "xo && stylelint 'src/stylesheets/*.css' && ava",
-    "start": "node build/start.js",
-    "dist": "del app dist && webpack --config=build/webpack.app.config.js --env=production && electron-builder --linux --win"
-  },
-  "dependencies": {
-    "v8-compile-cache": "^2.1.0",
-    "electron-context-menu": "^0.15.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "@wasm-tool/wasm-pack-plugin": "^1.0.1",
-    "ava": "^2.4.0",
-    "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.0.6",
-    "cache-loader": "^4.1.0",
-    "clean-css-loader": "^2.0.0",
-    "css-loader": "^3.2.0",
-    "del-cli": "^3.0.0",
-    "electron": "7.0.0",
-    "electron-builder": "^21.2.0",
-    "friendly-errors-webpack-plugin": "^1.7.0",
-    "html-webpack-exclude-assets-plugin": "0.0.7",
-    "html-webpack-plugin": "^3.2.0",
-    "optimize-wasm-webpack-plugin": "^1.0.12",
-    "script-ext-html-webpack-plugin": "^2.1.4",
-    "spectron": "^9.0.0",
-    "style-loader": "^1.0.0",
-    "stylelint": "^11.1.1",
-    "stylelint-config-xo": "^0.15.0",
-    "terser-webpack-plugin": "^2.2.1",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9",
-    "webpack-merge": "^4.2.2",
-    "webpack-node-externals": "^1.7.2",
-    "xo": "^0.25.3"
-  },
-  "xo": {
-    "parser": "babel-eslint",
-    "envs": [
-      "node",
-      "browser"
-    ],
-    "rules": {
-      "no-mixed-operators": 0,
-      "eqeqeq": 0,
-      "complexity": 0,
-      "import/no-unassigned-import": 0,
-      "import/no-unresolved": 0,
-      "unicorn/no-process-exit": 0,
-      "unicorn/prefer-query-selector": 0
+    "devDependencies": {
+        "@babel/core": "^7.8.4",
+        "@babel/preset-env": "^7.8.4",
+        "@wasm-tool/wasm-pack-plugin": "^1.1.0",
+        "ava": "^3.2.0",
+        "babel-eslint": "^10.0.3",
+        "babel-loader": "^8.0.6",
+        "cache-loader": "^4.1.0",
+        "clean-css-loader": "^2.0.0",
+        "css-loader": "^3.4.2",
+        "del-cli": "^3.0.0",
+        "electron": "7.1.11",
+        "electron-builder": "^22.3.2",
+        "friendly-errors-webpack-plugin": "^1.7.0",
+        "html-webpack-exclude-assets-plugin": "0.0.7",
+        "html-webpack-plugin": "^3.2.0",
+        "optimize-wasm-webpack-plugin": "^1.0.12",
+        "script-ext-html-webpack-plugin": "^2.1.4",
+        "spectron": "^10.0.0",
+        "style-loader": "^1.1.3",
+        "stylelint": "^13.0.0",
+        "stylelint-config-xo": "^0.16.1",
+        "terser-webpack-plugin": "^2.3.4",
+        "webpack": "^4.41.5",
+        "webpack-cli": "^3.3.10",
+        "webpack-merge": "^4.2.2",
+        "webpack-node-externals": "^1.7.2",
+        "xo": "^0.25.3"
     },
-    "ignores": [
-      "app/*.js"
-    ]
-  }
+    "xo": {
+        "parser": "babel-eslint",
+        "envs": [
+            "node",
+            "browser"
+        ],
+        "rules": {
+            "no-mixed-operators": 0,
+            "eqeqeq": 0,
+            "complexity": 0,
+            "import/no-unassigned-import": 0,
+            "import/no-unresolved": 0,
+            "unicorn/no-process-exit": 0,
+            "unicorn/prefer-query-selector": 0
+        },
+        "ignores": [
+            "app/*.js"
+        ]
+    }
 }
